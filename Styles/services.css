@@ -1,0 +1,567 @@
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the header stays above other content */
+    background-color: #f8f9fa; /* Match the background color of the navbar */
+    border-bottom: 1px solid #e9ecef; /* Optional: Add a border for visual separation */
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Add padding to header */
+  }
+  
+  /* Menu Button Styling */
+  #menuToggle {
+    font-size: 3rem; /* Increase size of menu icon */
+    cursor: pointer;
+    color: #000; /* Color of the icon */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+    margin-right: 10px; /* Space between the menu button and the line */
+  }
+  
+  /* Vertical Line */
+  .header-line {
+    width: 0.5px; /* Thickness of the line */
+    height: 60px; /* Height of the line, adjust as needed */
+    background-color: #53dff3; /* Color of the line */
+    margin-right: 10px; /* Space between the line and the logo */
+  }
+  
+  /* Logo Styling */
+  header .navbar-brand {
+    font-size: 1.5rem; /* Adjust font size of logo */
+    margin-left: 0; /* Remove any default margin */
+  }
+  
+  /* Header Right Styling */
+  .header-right {
+    margin-left: auto; /* Push the content to the right */
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Search Container */
+  .search-container {
+    position: relative; /* Position for absolute child elements */
+    display: flex; /* Align children in a row */
+    align-items: center; /* Vertically center children */
+  }
+  
+  /* Move Search Icon Right */
+  #searchIcon {
+    font-size: 2rem; /* Adjust size of search icon */
+    cursor: pointer;
+    margin: 0 15px; /* Space between search icon and other elements */
+  }
+  
+  /* Search Input Styling */
+  #searchInput {
+    display: none; /* Hide by default */
+    width: 200px; /* Width of the input field */
+    padding: 5px;
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    z-index: 1; /* Ensure it appears above other content */
+  }
+  
+  /* Show the input field on hover */
+  .search-container:hover #searchInput {
+    display: block; /* Show the input field */
+  }
+  
+  /* Lines on either side of search icon */
+  #searchIcon::before,
+  #searchIcon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 0.5px; /* Adjust the length of the lines */
+    height: 60px; /* Thickness of the lines */
+    background-color: #53dff3; /* Color of the lines */
+    transform: translateY(-50%); /* Center the lines vertically */
+  }
+  
+  #searchIcon::before {
+    left: 5px; /* Adjust distance from the icon */
+  }
+  
+  #searchIcon::after {
+    right: -5px; /* Adjust distance from the icon */
+  }
+  
+  .header-right .btn {
+    font-size: 1rem; /* Adjust font size of login button */
+    padding: 5px 10px; /* Adjust padding of login button */
+  }
+  
+  /* Overlay Menu Styling */
+  .overlay-menu {
+    position: fixed;
+    top: 56px; /* Adjust according to the height of your header */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 56px); /* Full height minus the header height */
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none; /* Hide by default */
+    z-index: 999; /* Ensure it's below the header */
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%); /* Initially hide it above the viewport */
+  }
+  
+  .overlay-menu.show {
+    display: block;
+    transform: translateY(0); /* Slide in from the top */
+  }
+  
+  .overlay-menu .navbar-nav {
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  
+  .overlay-menu .navbar-nav .nav-item {
+    padding: 10px 0;
+  }
+  
+  /* Transform the menu icon to 'X' */
+  #menuToggle.open {
+    transform: rotate(90deg); /* Rotate the icon to form an 'X' */
+  }
+  
+  /* Rotate back the icon */
+  #menuToggle {
+    transform: rotate(0deg); /* Reset the rotation */
+  }
+  
+  /* Close Button Styling */
+  .close-btn {
+    display: none; /* Hide the close icon by default */
+    font-size: 3rem; /* Increase size of close icon */
+    cursor: pointer;
+    color: #000; /* Color of the icon */
+  }
+  
+  /* Remove the default button styles */
+  .login {
+    color: black; /* Text color */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Adjust font size */
+    padding: 5px 10px; /* Adjust padding */
+    cursor: pointer; /* Change cursor to pointer */
+    position: relative; /* Position for underline */
+    margin-left: 20px;
+  }
+  
+  /* Remove any background color on hover */
+  .login:hover {
+    background: none;
+    color: black;
+  }
+  
+  /* Underline on hover */
+  .login::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Position underline */
+    width: 100%;
+    height: 2px; /* Thickness of underline */
+    background-color: black; /* Color of underline */
+    transform: scaleX(0);
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Display underline on hover */
+  .login:hover::after {
+    transform: scaleX(1);
+  }
+
+  .carousel-inner img {
+    height: 500px; /* Set your desired height */
+    object-fit: cover;
+}
+
+.carousel-caption {
+   
+    background: rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 2em;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        bottom: 80px;
+        left: 10px;
+        right: 10px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.1); /* Darker background for better readability */
+        display: block !important; /* Ensure captions are displayed */
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.25rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.875rem;
+    }
+
+    .carousel-inner img {
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Header Content Styling */
+.head1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.head1 h6 {
+    color: #0f0404;
+}
+
+
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    position: relative;
+    width: 30%;
+    margin-bottom: 110px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.item img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    height: 10em;
+}
+
+.item h5 {
+    margin: 10px 0;
+}
+
+
+
+.year-category {
+  position: relative;
+  padding-right: 10px; /* Adjust spacing as needed */
+}
+
+.year-category::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 1em; /* Adjust height as needed */
+  background-color: currentColor; /* Matches the text color */
+  margin-left: 10px; /* Adjust spacing between the line and the category text */
+}
+
+.item button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .item {
+        width: 50%;
+    }
+
+    .item button {
+      background: linear-gradient(
+    to bottom,
+    #f8e478,
+    #53dff3
+  );
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 10px;
+  }
+
+    .item-content{
+        top: 90%;
+        left: 50%;
+        
+    }
+}
+
+@media (max-width: 576px) {
+    .item {
+        width: 50%;
+    }
+
+    .item-content{
+        top: 55%;
+        left: 50%;
+    }
+
+    .item button {
+      background: linear-gradient(
+    to bottom,
+    #f8e478,
+    #53dff3
+  );
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 10px;
+  }
+
+}
+
+
+
+
+
+.full-width-section {
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    #f8e478,
+    #53dff3
+  );
+  padding: 20px;
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.full-width-heading, .full-width-paragraph {
+  margin: 0;
+  padding: 0;
+text-align: center;
+  
+}
+
+.full-width-heading {
+  font-size: 2em;
+  margin-bottom: 10px; /* Adds space between heading and paragraph */
+}
+
+.full-width-paragraph {
+  font-size: 1em;
+}
+
+@media (max-width: 768px) {
+  .full-width-heading {
+      font-size: 1.5em;
+  }
+
+  .full-width-paragraph {
+      font-size: 0.9em;
+  }
+}
+
+@media (max-width: 576px) {
+  .full-width-heading {
+      font-size: 1.2em;
+  }
+
+  .full-width-paragraph {
+      font-size: 0.8em;
+  }
+  .follow{
+    margin-left: 4em;
+  }
+}
+
+
+
+
+
+
+
+  #scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #333;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 2em 0;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 0.5em;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1em;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+  
+  .social-links li {
+    margin: 1px;
+   right: 50%;
+    padding: -12em;
+  }
+  
+  .social-links li a {
+    color: white;
+  }
+  
+  .social-links img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-top h3 {
+    margin-left: -39em;
+  }
+
+  .learn-more {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.learn-more .arrow {
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+    margin-left: 5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid currentColor;
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 15em;
+  }
+
+  .footer-top h3 {
+    margin-left: -8em;
+  }
+
+  .footer-top .footer-info,
+  .footer-top .follow-us {
+    margin-bottom: 1em;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 576px) {
+  .social-links {
+    display: flex;
+    gap: 1em;
+    padding: 0;
+    list-style: none;
+    margin-left: -5.5em;
+  }
+}
+
+
+
+
+.card-img-top {
+  height: 200px; /* Set a fixed height for all images */
+  object-fit: cover; /* Ensure the image covers the entire area without distortion */
+  border-radius: 50%; /* Make the images round */
+  width: 200px; /* Ensure the width matches the height to make a perfect circle */
+  margin: auto; /* Center the image within the card */
+}
+.card-body p.card-description {
+  margin-top: 10px;
+  color: #000;
+  font-size: 14px;
+  display: block;
+}

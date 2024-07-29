@@ -1,0 +1,1346 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+  display: flex; /* Use Flexbox */
+  flex-direction: column; /* Arrange children in a column */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  text-align: center; /* Center text */
+}
+
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+    
+    width: 100vw; /* Ensure full width of viewport */
+  }
+}
+
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .centered-container {
+    padding: 0 0.5em; /* Less padding on smaller screens */
+  }
+}
+
+/* Header Styling */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the header stays above other content */
+  background-color: #f8f9fa; /* Match the background color of the navbar */
+  border-bottom: 1px solid #e9ecef; /* Optional: Add a border for visual separation */
+  display: flex;
+  align-items: center;
+  padding: 0 20px; /* Add padding to header */
+}
+
+/* Menu Button Styling */
+#menuToggle {
+  font-size: 3rem; /* Increase size of menu icon */
+  cursor: pointer;
+  color: #000; /* Color of the icon */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+  margin-right: 10px; /* Space between the menu button and the line */
+}
+
+/* Vertical Line */
+.header-line {
+  width: 0.5px; /* Thickness of the line */
+  height: 60px; /* Height of the line, adjust as needed */
+  background-color: #53dff3; /* Color of the line */
+  margin-right: 10px; /* Space between the line and the logo */
+}
+
+/* Logo Styling */
+header .navbar-brand {
+  font-size: 1.5rem; /* Adjust font size of logo */
+  margin-left: 0; /* Remove any default margin */
+}
+
+/* Header Right Styling */
+.header-right {
+  margin-left: auto; /* Push the content to the right */
+  display: flex;
+  align-items: center;
+}
+
+/* Search Container */
+.search-container {
+  position: relative; /* Position for absolute child elements */
+  display: flex; /* Align children in a row */
+  align-items: center; /* Vertically center children */
+}
+
+/* Move Search Icon Right */
+#searchIcon {
+  font-size: 2rem; /* Adjust size of search icon */
+  cursor: pointer;
+  margin: 0 15px; /* Space between search icon and other elements */
+}
+
+/* Search Input Styling */
+#searchInput {
+  display: none; /* Hide by default */
+  width: 200px; /* Width of the input field */
+  padding: 5px;
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  z-index: 1; /* Ensure it appears above other content */
+}
+
+/* Show the input field on hover */
+.search-container:hover #searchInput {
+  display: block; /* Show the input field */
+}
+
+/* Lines on either side of search icon */
+#searchIcon::before,
+#searchIcon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0.5px; /* Adjust the length of the lines */
+  height: 60px; /* Thickness of the lines */
+  background-color: #53dff3; /* Color of the lines */
+  transform: translateY(-50%); /* Center the lines vertically */
+}
+
+#searchIcon::before {
+  left: 5px; /* Adjust distance from the icon */
+}
+
+#searchIcon::after {
+  right: -5px; /* Adjust distance from the icon */
+}
+
+.header-right .btn {
+  font-size: 1rem; /* Adjust font size of login button */
+  padding: 5px 10px; /* Adjust padding of login button */
+}
+
+/* Overlay Menu Styling */
+.overlay-menu {
+  position: fixed;
+  top: 56px; /* Adjust according to the height of your header */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 56px); /* Full height minus the header height */
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none; /* Hide by default */
+  z-index: 999; /* Ensure it's below the header */
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%); /* Initially hide it above the viewport */
+}
+
+.overlay-menu.show {
+  display: block;
+  transform: translateY(0); /* Slide in from the top */
+}
+
+.overlay-menu .navbar-nav {
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.overlay-menu .navbar-nav .nav-item {
+  padding: 10px 0;
+}
+
+/* Transform the menu icon to 'X' */
+#menuToggle.open {
+  transform: rotate(90deg); /* Rotate the icon to form an 'X' */
+}
+
+/* Rotate back the icon */
+#menuToggle {
+  transform: rotate(0deg); /* Reset the rotation */
+}
+
+/* Close Button Styling */
+.close-btn {
+  display: none; /* Hide the close icon by default */
+  font-size: 3rem; /* Increase size of close icon */
+  cursor: pointer;
+  color: #000; /* Color of the icon */
+}
+
+/* Remove the default button styles */
+.login {
+  color: black; /* Text color */
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Adjust font size */
+  padding: 5px 10px; /* Adjust padding */
+  cursor: pointer; /* Change cursor to pointer */
+  position: relative; /* Position for underline */
+  margin-left: 20px;
+}
+
+/* Remove any background color on hover */
+.login:hover {
+  background: none;
+  color: black;
+}
+
+/* Underline on hover */
+.login::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Position underline */
+  width: 100%;
+  height: 2px; /* Thickness of underline */
+  background-color: black; /* Color of underline */
+  transform: scaleX(0);
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Display underline on hover */
+.login:hover::after {
+  transform: scaleX(1);
+}
+
+
+
+/* FIRTS DIV IMAGES */
+.image-text-container {
+  display: flex;
+  align-items: stretch; /* Make children elements stretch to the container's height */
+  justify-content: center;
+  gap: 0; /* Remove gap between images */
+  height: 50em; /* Adjust height as needed */
+}
+
+.image-wrapper1,
+.image-wrapper2 {
+  position: relative;
+  flex: 1; /* Make the images take equal space */
+}
+
+.image-wrapper1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.image-wrapper1 h3 {
+  position: absolute;
+  color: white;
+
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  z-index: 2; /* Ensure the text is above the image */
+  width: 90%; /* Adjust width as needed */
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-wrapper1 img,
+.image-wrapper2 img {
+  width: 100%;
+  height: 100%; /* Make images fill the height of the container */
+  object-fit: cover;
+}
+
+.text-block {
+  display: flex;
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  width: 40px; /* Adjust width as needed */
+  background-color: rgba(12, 88, 12, 0.5); /* Semi-transparent background */
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  height: 100%; /* Match the height of the images */
+}
+
+.text-block span {
+  writing-mode: vertical-lr; /* Change writing mode to vertical-lr */
+  transform: rotate(180deg); /* Rotate the text 180 degrees */
+  font-size: 1.5rem;
+  color: white;
+}
+
+.text-block:hover {
+  background-color: wheat;
+  cursor: pointer;
+}
+
+.text-block::after {
+  content: "Hovered Text"; /* The text you want to display on hover */
+  display: none; /* Hide by default */
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Background color of the hover text */
+  color: black; /* Text color */
+  padding: 5px 10px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better visibility */
+  white-space: nowrap; /* Prevent text from wrapping */
+  z-index: 10; /* Ensure it appears above other content */
+}
+
+.text-block:hover::after {
+  display: block; /* Show the text on hover */
+}
+
+.image-wrapper1 h5 {
+  top: 37%; /* Adjust top position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  position: absolute;
+}
+.image-wrapper1 a {
+  position: absolute;
+  bottom: 30%; /* Position the button at the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+
+.image-wrapper1 a span {
+  margin-left: 0.5em; /* Space between text and icon */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .image-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .image-wrapper1 {
+    position: relative;
+    width: 100%;
+    height: auto; /* Adjust height as needed for mobile */
+    text-align: center;
+  }
+
+  .image-wrapper1 h5,
+  .image-wrapper1 h3,
+  .image-wrapper1 a {
+    position: absolute;
+    color: white;
+    padding: 0.5em;
+    border-radius: 5px;
+    z-index: 2;
+    width: 90%;
+    margin-top: 2em;
+    text-align: center;
+  }
+
+  .image-wrapper1 h5 {
+    top: 17%; /* Adjust top position as needed */
+  }
+
+  .image-wrapper1 h3 {
+    top: 30%; /* Adjust top position as needed */
+  }
+
+  .image-wrapper1 a {
+    bottom: 30%; /* Adjust bottom position as needed */
+  }
+
+  .image-wrapper1 img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Hide other elements except the first image-wrapper */
+  .image-text-container > div:not(.image-wrapper1) {
+    display: none;
+  }
+}
+
+
+
+
+
+.head1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 20vh; /* Adjust the height as needed */
+  text-align: center;
+  padding: 10px; /* Optional: Add padding for spacing */
+  margin-top: 10px; /* Adjust to start closer to the middle of the body */
+}
+
+.head1 h6 {
+  color: #0f0404; /* Optional: Change text color */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .head1 {
+    margin-left: 0; /* Remove the margin for mobile view */
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .head1 h6 {
+    margin-left: 0; /* Remove the margin for mobile view */
+  }
+.head1 h3{
+  margin-left: 1em;
+}
+
+}
+
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+/* Ensure all cards are of the same height */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: row; /* Arrange elements in a row */
+    align-items: center; /* Center items vertically */
+    height: auto; /* Let height adjust based on content */
+    background-color: transparent;
+  }
+
+  .card img {
+    width: 30%; /* Adjust the width of the image */
+    height: 10em; /* Maintain the aspect ratio */
+    border-radius: 8px; /* Maintain border radius */
+    margin-left: auto; /* Push the image to the right */
+  }
+
+  .card-body {
+    flex: 1; /* Allow text to take remaining space */
+    padding-left: 15px; /* Add some space between text and image */
+    
+  }
+
+  .card h2 {
+    font-size: 1.2rem; /* Adjust title size for mobile */
+    margin: 0; /* Adjust margin */
+  }
+
+  .card p {
+    display: none; /* Hide description text for mobile */
+  }
+
+  .card h6 {
+    font-size: 0.9rem; /* Adjust subtitle size for mobile */
+    color: rgb(132, 132, 132);
+  }
+
+  .learn-more {
+    display: none; /* Hide learn more link for mobile */
+  }
+}
+
+
+.learn-more {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #007bff;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.learn-more::after {
+  content: "→";
+  margin-left: 5px;
+  transition: margin-left 0.3s;
+}
+
+.learn-more:hover {
+  color: #0056b3;
+}
+
+.learn-more:hover::after {
+  margin-left: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(69, 69, 244);
+}
+
+
+
+
+
+
+/* Ensure the image-text-div covers the full width of the container */
+.image-text-div {
+  display: flex;
+  width: 100%;
+  height: 100%; /* Adjust height as needed */
+  overflow: hidden; /* Hide overflow */
+  flex-direction: row; /* Default layout for larger screens */
+}
+
+/* Style the text content */
+.text-content {
+  flex: 1; /* Takes up half of the container */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ecf0f0; /* Background color of the text section */
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.paragraph {
+  margin-bottom: 20px;
+}
+
+.btn {
+  align-self: flex-start; /* Align button to the left */
+}
+
+/* Style the image container */
+.image-container {
+  flex: 1; /* Takes up half of the container */
+  overflow: hidden; /* Hide any overflow */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the container */
+}
+
+/* Center the main container */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.image-container img {
+  width: 150%;
+  height: auto;
+  object-fit: cover;
+
+}
+
+@media (max-width: 768px) {
+  .image-text-div {
+    flex-direction: column; /* Stack the elements vertically */
+    align-items: center; /* Center align items */
+  }
+
+  .text-content, .image-container {
+    width: 100%; /* Set the same width for both elements */
+    max-width: 100%; /* Ensure max-width is 100% */
+    padding: 0; /* Reduce padding for mobile view */
+    margin: 0; /* Reset margin */
+  }
+
+  .text-content {
+    order: 1; /* Ensure text content appears first */
+    text-align: center; /* Center text content */
+    padding: 20px; /* Add padding for spacing */
+  }
+
+  .image-container {
+    order: 2; /* Ensure image appears second */
+  }
+
+  .title {
+    font-size: 1.5rem; /* Adjust title size for mobile view */
+  }
+
+  .paragraph {
+    font-size: 1rem; /* Adjust paragraph size for mobile view */
+    margin: 0;
+    padding: 0;
+  }
+
+  .paragraph .btn{
+  color: #000;
+  }
+
+  .image-container img {
+    height: auto; /* Adjust image height for mobile view */
+    width: 100%; /* Ensure image covers the container */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ensure images are responsive */
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+/* Styling for the text container */
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.paragraph {
+  margin-bottom: 10px;
+}
+
+/* Ensure the image container maintains aspect ratio */
+
+
+.main2 {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .text-overlay {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    font-size: 14px;
+  }
+
+  .move {
+    padding: 5px;
+  }
+
+  .prev {
+    left: 5px;
+  }
+
+  .next {
+    right: 5px;
+  }
+
+  .image-container1 {
+    padding: 0 10px; /* Add some padding to the sides */
+  }
+}
+
+
+
+
+
+
+
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.carousel-wrapper {
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 33.3333%;
+  box-sizing: border-box;
+  margin: 0; /* Remove margin to prevent gaps */
+  padding: 0; /* Remove padding to prevent gaps */
+  position: relative;
+}
+
+.carousel-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.carousel-item img {
+  display: block;
+  width: 80%;
+  height: 25em;
+}
+
+.carousel-content {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  height: 19em;
+  width: 15em;
+}
+
+.carousel-eyebrow {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.carousel-title {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.carousel-description {
+  font-size: 14px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-button-left {
+  top: 10em;
+  left: 10px;
+  font-size: 1.3em;
+}
+
+.carousel-button-right {
+  top: 10em;
+  right: 10px;
+  font-size: 1.3em;
+}
+
+@media (max-width: 1300px) {
+  .carousel-slide {
+      min-width: 33.3333%;
+  }
+}
+
+@media (max-width: 992px) {
+  .carousel-slide {
+      min-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel-slide {
+      min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .carousel-slide {
+    min-width: 100%;
+    margin-left: 2.7em;
+}
+  
+}
+
+
+
+.grid-container {
+  padding: 20px;
+}
+
+.head1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid-item {
+  width: 30%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item .grid-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.grid-content {
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.grid-title {
+  margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .grid-item {
+      width: 48%;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-item {
+      width: 48%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Container with no margin or padding */
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Row with no extra space */
+.row {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+/* Column with no extra space and full height */
+.col-lg-6,
+.col-6 {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5; /* Ensure no padding */
+}
+
+/* Make image containers and text containers take equal space */
+.image-container,
+.text-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -12px;
+  padding: 0;
+}
+
+.join {
+  margin-top: 0.7em;
+}
+
+.text {
+  background: linear-gradient(to bottom right, #f8e478, #53dff3);
+  color: white;
+  font-size: 24px;
+}
+
+.btn2 {
+  text-align: center;
+  align-items: center;
+  margin-left: 10em;
+}
+
+.container {
+  width: 100%; /* Full viewport width */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.main-cont {
+  width: 200em;
+}
+
+.row.no-gutters {
+  margin: 0;
+  padding: 0;
+}
+
+.large-image-section {
+  position: relative;
+  width: 100%; /* Full width */
+  height: 60vh; /* Adjust height as needed */
+  overflow: hidden; /* Ensure no overflow */
+}
+
+.large-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the area without distortion */
+  display: block;
+}
+
+.large-image-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent background for readability */
+  padding: 1em;
+  box-sizing: border-box; /* Include padding in the element’s total width and height */
+}
+
+.large-image-title {
+  font-size: 2em;
+  margin: 0 0 0.5em;
+}
+
+.large-image-description {
+  font-size: 1.2em;
+  margin: 0 0 1em;
+}
+
+.learn-more {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.learn-more span {
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+
+.two-blocks {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Full width */
+  height: 60vh; /* Adjust height to match the large image section */
+  margin-left: -1.5em; /* Remove margin */
+  padding: 0; /* Remove padding */
+}
+
+.block {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0; /* Ensure no padding */
+  height: 50%; /* Each block takes up half of the container height */
+}
+
+.block img {
+  width: 40%;
+  height: 100%;
+  object-fit: cover; /* Cover the area without distortion */
+  display: block;
+}
+
+.block-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  /* Background color for the text block */
+  color: rgb(6, 6, 6);
+  text-align: center;
+  box-sizing: border-box; /* Include padding in the element’s total width and height */
+}
+
+.block-title {
+  font-size: 1.5em;
+  margin: 0 0 0.5em;
+}
+
+.block-description {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Optional: Different background color for the second block if needed */
+.text3 {
+  background: linear-gradient(to bottom right, #f8e478, #53dff3);
+  color: white;
+}
+.learn {
+  color: black;
+}
+
+.container {
+  width: 100vw; /* Full viewport width */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.row.no-gutters {
+  margin: 0;
+  padding: 0;
+}
+
+.left-side-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh; /* Full viewport height */
+
+  padding: 2em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.learn2 {
+  margin-top: -1em;
+}
+
+.left-side-content .title {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.left-side-content .description {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+.left-side-content .btn {
+  margin-bottom: 1em;
+}
+
+.arrow {
+  font-size: 2em;
+}
+
+.right-side-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  /* Background color for the right side */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.large-image-container {
+  position: relative;
+  width: 80%; /* Adjust as needed */
+  height: 80%; /* Adjust as needed */
+}
+
+.large-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn3 {
+  margin-left: 10em;
+}
+
+
+
+@media (max-width: 480px) {
+  .btn3 {
+    margin-left: 6.5em;
+  }
+ 
+  .btn4 {
+    margin-left: 7.5em;
+  }
+
+  .btn5 {
+    margin-left: 8em;
+  }
+}
+
+
+
+
+.full-width-div {
+  width: 100vw; /* Full viewport width */
+  padding: 2em; /* Add padding for spacing */
+  box-sizing: border-box; /* Include padding in the element’s total width */
+  background: linear-gradient(
+    to bottom,
+    #f8e478,
+    #53dff3
+  ); /* Gradient from top to bottom */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.email-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px; /* Max width for the form */
+}
+
+.text {
+  font-size: 1.5em;
+  margin-right: 1em;
+  color: #333;
+}
+
+.email-input {
+  flex: 1;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.submit-btn {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: 1px solid #007bff;
+  border-radius: 0 4px 4px 0;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .full-width-div {
+    flex-direction: column; /* Stack items vertically */
+    padding: 1em; /* Adjust padding for smaller screens */
+  }
+
+  .text1 {
+    font-size: 1.2em; /* Smaller font size for smaller screens */
+    margin-bottom: 1em; /* Space below the text */
+  }
+
+  .email-form {
+    gap: 0.75em; /* Reduce gap between elements */
+    width: 100%; /* Full width of its container */
+  }
+}
+
+@media (max-width: 480px) {
+  .text1 {
+    font-size: 1em; /* Further reduce font size for very small screens */
+    margin-bottom: 0.5em; /* Reduce space below the text */
+  }
+
+  .email-input,
+  .submit-btn {
+    padding: 0.5em; /* Adjust padding for smaller screens */
+    font-size: 0.9em; /* Adjust font size for smaller screens */
+  }
+}
+
+
+/* Footer Styling */
+.footer {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 2em 0;
+  text-align: center;
+  border-top: 1px solid #e9ecef;
+}
+
+.footer-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 0.5em;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 1em;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.social-links li {
+  margin: 1px;
+ right: 50%;
+  padding: -12em;
+}
+
+.social-links li a {
+  color: white;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-top h3 {
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 15em;
+  }
+
+  .footer-top h3 {
+    margin-left: -9em;
+  }
+
+  .footer-top .footer-info,
+  .footer-top .follow-us {
+    margin-bottom: 1em;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 576px) {
+  .social-links {
+    display: flex;
+    gap: 1em;
+    padding: 0;
+    list-style: none;
+    margin-left: -6em;
+  }
+ 
+}
+
+#scrollToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #555; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+}
+
+#scrollToTopBtn:hover {
+  background-color: #333; /* Add a dark-grey background on hover */
+}
+
+

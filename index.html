@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultancy Firm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/index.css"> <!-- Ensure this path is correct -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <span class="material-symbols-outlined" id="menuToggle">
+            menu
+        </span>
+        <div class="header-line"></div> <!-- Vertical line -->
+        <a class="navbar-brand" href="#">Logo</a>
+        <div class="header-right">
+            <div class="search-container">
+                <span class="material-symbols-outlined" id="searchIcon">
+                    search
+                </span>
+                <form id="searchForm" action="/search" method="get">
+                    <input type="text" id="searchInput" name="query" placeholder="Search...">
+                </form>
+            </div>
+            <a class="btn btn-outline-primary login" href="#">Log in</a>
+        </div>
+    </header>
+
+    <!-- Overlay Menu -->
+    <div class="overlay-menu" id="overlayMenu">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Menu/event.html">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Menu/newsletters.html">Newsletters</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Menu/services.html">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trainings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Webinars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <!-- New Section with Images and Text Block -->
+    <!-- <div class="main-content"> -->
+
+        <div style="background-color: rgb(239, 237, 237);">
+            <div class="image-text-container">
+                <div class="image-wrapper1 text-center">
+                    <img src="Resources/Imgs/download.webp" alt="Green sky with star" class="first-image img-fluid">
+                    <h5 style="color: green;" class="image-text">BCG EXECUTIVE PERSPECTIVES 2024</h5><br><br><br>
+                    <h3 class="image-text">The CEO’s Guide to Maximizing Value Potential from AI</h3>
+                    <a href="#" class="learn-more learn image-text">Learn More <span></span></a>
+                </div>
+                <div class="text-block text-center">
+                    <span>Check more +</span>
+                </div>
+                <div class="image-wrapper2 text-center">
+                    <img src="Resources/Imgs/download (1).webp" alt="Image 2" class="second-image img-fluid">
+                </div>
+            </div>
+            <div class="head1 text-center mt-4">
+                <h6>RECOMMENDED <span style="color: rgb(20, 217, 20);">FOR YOU</span></h6>
+                <h3>Our Latest Thinking Based on Your Interests</h3>
+            </div>
+            <div class="container mt-4 centered-container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="Resources/Imgs/hero-image-top-10-article-opt.jpg" alt="Placeholder Image" class="card-img-top">
+                            <div class="card-body">
+                                <h6>Newsletters</h6>
+                                <a href="Menu/newsletters.html">
+                                    <h2 class="card-title">The ‘Top 10’ Focus Areas for New Zealand Executives in 2024</h2>
+                                </a>
+                                <p class="card-text">Discover how New Zealand's business landscape is evolving in 2024 with our latest report, highlighting the 'Top 10 Focus Areas for Executives'—a roadmap for navigating post-COVID challenges.</p>
+                                <a href="Menu/newsletters.html" class="learn-more learn">Learn More <span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="Resources/Imgs/nature-is-bankings-next-opportunity.jpg" alt="Placeholder Image" class="card-img-top">
+                            <div class="card-body">
+                                <h6>Newsletters</h6>
+                                <a href="Menu/newsletters.html">
+                                    <h2 class="card-title">Nature Is Banking’s Next Opportunity</h2>
+                                </a>
+                                <p class="card-text">Addressing the crisis in the natural world requires an estimated $1.2 trillion in annual private sector investment. Institutions that act next can gain business advantages.</p>
+                                <a href="Menu/newsletters.html" class="learn-more learn">Learn More <span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="Resources/Imgs/a-look-into-the-drivers-of-long-term-financial-health-hero-nxpowerlite-copy.jpg" alt="Placeholder Image" class="card-img-top">
+                            <div class="card-body">
+                                <h6>Newsletters</h6>
+                                <a href="Menu/newsletters.html">
+                                    <h2 class="card-title">Beyond Access: A Look into the Drivers of Long-Term Financial Health</h2>
+                                </a>
+                                <p class="card-text">BCG collaborated with Mastercard and Nubank to analyze consumer data and insights across the Brazilian market to map the financial inclusion journey and provide a framework for financial inclusion.</p>
+                                <a href="Menu/newsletters.html" class="learn-more learn">Learn More <span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="Resources/Imgs/turning-a-personal-challenge-into-change-opt.jpg" alt="Placeholder Image" class="card-img-top">
+                            <div class="card-body">
+                                <h6>Newsletters</h6>
+                                <a href="Menu/newsletters.html">
+                                    <h2 class="card-title">Turning a Personal Challenge into Change</h2>
+                                </a>
+                                <p class="card-text">Sam Juraschka’s own health care journey convinced her more had to be done for women’s health. By creating BCG’s InnovateHer team, she built a space for her colleagues to help tackle pressing issues.</p>
+                                <a href="Menu/newsletters.html" class="learn-more learn">Learn More <span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="Resources/Imgs/m-a-collection-hero-rectangle.jpg" alt="Placeholder Image" class="card-img-top">
+                            <div class="card-body">
+                                <h6>Newsletters</h6>
+                                <a href="Menu/newsletters.html">
+                                    <h2 class="card-title">Inflation</h2>
+                                </a>
+                                <p class="card-text">Explore BCG’s insights on how to navigate today’s inflationary environment while building competitive advantage for tomorrow.</p>
+                                <a href="Menu/newsletters.html" class="learn-more learn">Learn More <span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="Resources/Imgs/is-your-portfolio-ready-for-higher-rates-rectangle.jpg" alt="Placeholder Image" class="card-img-top">
+                            <div class="card-body">
+                                <h6>Newsletters</h6>
+                                <a href="Menu/newsletters.html">
+                                    <h2 class="card-title">Is Your Portfolio Ready for Higher Rates?</h2>
+                                </a>
+                                <p class="card-text">If higher interest rates are here to stay, many business portfolios will need careful review.</p>
+                                <a href="Menu/newsletters.html" class="learn-more learn">Learn More <span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br><br>
+    <div class="container mt-4 main">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10">
+                <div class="image-text-div">
+                    <div class="image-container">
+                        <img src="Resources/Imgs/download (2).webp" alt="Sample Image">
+                    </div>
+                    <div class="text-content">
+                        <h6>OUR LOCATIONS</h6>
+                        <h2 class="title">BCG in Africa</h2>
+                        <p class="paragraph">Dealmakers remain cautious amid economic uncertainty—but factors promoting
+                            a positive outlook for M&A include the ongoing push for digitization, the energy transition,
+                            and the need to future-proof business models. With an approach leveraging BCG’s proprietary
+                            methodology and the latest advances in GenAI, our new index provides monthly updates on
+                            dealmakers' willingness to engage in mergers, acquisitions, and divestitures.</p>
+                        <a href="#" class="btn btn-primary btn2 btn5">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="head1">
+        <h6>FEATURED <span style="color: rgb(20, 217, 20);">THIS WEEK</span> </h6>
+        <h3>Our Latest Thinking Based on Your Interests</h3>
+
+    </div>
+
+
+
+
+    <div class="carousel">
+        <div class="carousel-wrapper">
+            <div class="carousel-track">
+                <div class="carousel-slide current-slide">
+                    <a href="$" target="" class="carousel-item">
+                        <img src="Resources/Imgs/download (8).webp" alt="Item 2">
+                        <div class="carousel-content">
+                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span
+                                    style="color: rgb(132, 132, 132);">/ NEWLETTERS</span></p>
+                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
+                            </h2>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-slide">
+                    <a href="$" target="" class="carousel-item">
+                        <img src="Resources/Imgs/spark.jpg" alt="Item 2">
+                        <div class="carousel-content">
+                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span
+                                    style="color: rgb(132, 132, 132);">/ NEWLETTERS</span></p>
+                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
+                            </h2>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="carousel-slide">
+                    <a href="$" target="" class="carousel-item">
+                        <img src="Resources/Imgs/spark.jpg" alt="Item 2">
+                        <div class="carousel-content">
+                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span
+                                    style="color: rgb(132, 132, 132);">/ NEWLETTERS</span></p>
+                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
+                            </h2>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="carousel-slide">
+                    <a href="$" target="" class="carousel-item">
+                        <img src="Resources/Imgs/spark.jpg" alt="Item 2">
+                        <div class="carousel-content">
+                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span
+                                    style="color: rgb(132, 132, 132);">/ NEWLETTERS</span></p>
+                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
+                            </h2>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="carousel-slide">
+                    <a href="$" target="" class="carousel-item">
+                        <img src="Resources/Imgs/download (9).webp" alt="Item 2">
+                        <div class="carousel-content">
+                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span
+                                    style="color: rgb(132, 132, 132);">/ NEWLETTERS</span></p>
+                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
+                            </h2>
+
+                        </div>
+                    </a>
+                </div>
+
+                
+                <div class="carousel-slide">
+                    <a href="$" target="" class="carousel-item">
+                        <img src="Resources/Imgs/download (9).webp" alt="Item 2">
+                        <div class="carousel-content">
+                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span
+                                    style="color: rgb(132, 132, 132);">/ NEWLETTERS</span></p>
+                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
+                            </h2>
+
+                        </div>
+                    </a>
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+        </div>
+        <button class="carousel-button carousel-button-left" data-direction="left">&lt;</button>
+        <button class="carousel-button carousel-button-right" data-direction="right">&gt;</button>
+    </div>
+    <br><br>
+
+
+    <div class="container mt-4 main">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10">
+                <div class="image-text-div">
+
+                    <div class="text-content">
+                        <h6>OUR LOCATIONS</h6>
+                        <h2 class="title">BCG in Africa</h2>
+                        <p class="paragraph">Learn about our offices in Africa, read our latest thought leadership,
+                            and connect with our team.</p>
+                        <a href="#" class="btn btn-primary btn4">Learn More</a>
+                    </div>
+                    <div class="image-container">
+                        <img src="Resources/Imgs/download (2).webp" alt="Sample Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container mt-4 main-cont">
+        <div class="row no-gutters">
+            <!-- Main Large Image Section -->
+            <div class="col-lg-6">
+                <div class="large-image-section">
+                    <img src="Resources/Imgs/download (3).webp" alt="Large Image">
+                    <div class="large-image-content">
+                        <p>EXPLORE OUR EXPERTISE</p>
+                        <h3 class="large-image-title">M&A, Transactions, and PMI</h3>
+                        <a href="#" class="learn-more">Learn More <span></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Block Sections -->
+            <div class="col-lg-6">
+                <div class="two-blocks">
+                    <div class="block">
+                        <img src="Resources/Imgs/download (4).webp" alt="Image 1">
+                        <div class="block-content">
+                            <h3 class="block-title">Podcasts by BCG</h3>
+                            <a href="#" class="learn-more" style="color: black;">Learn More <span></span></a>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <img src="Resources/Imgs/download (5).webp" alt="Image 2">
+                        <div class="block-content text3">
+                            <p>BCG EMAIL SUBSCRIPTIONS</p>
+                            <h3 class="block-title">Stay Connected with Our Latest Content</h3>
+                            <a href="#" class="learn-more btn5">Learn More <span></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container mt-4">
+        <div class="row no-gutters">
+            <!-- Left Side -->
+            <div class="col-lg-6">
+                <div class="left-side-content">
+                    <h2 class="title">Go Beyond the Expected</h2>
+                    <p class="description" style="color: rgb(132, 132, 132);">Here at BCG, we pride ourselves on going
+                        beyond ideas to design solutions and implement meaningful action. We’re dedicated to helping our
+                        clients do amazing things and unlocking the potential of those who advance the world. Join us,
+                        and you can too.
+                    </p>
+                    <a href="#" class="btn btn-primary btn3">Learn More</a>
+                    <div class="arrows">
+                        <a href="#" class="learn-more learn">EXPLORE OUR CULTURE AND VALUES<span></span></a><br>
+                        <a href="#" class="learn-more learn learn2">READ THE CAREERS BLOG <span></span></a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="col-lg-6">
+                <div class="right-side-content">
+                    <div class="large-image-container">
+                        <img src="Resources/Imgs/download (6).webp" alt="Large Image" class="large-image">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="grid-container">
+        <div class="head1">
+            <h6>RECOMMENDED <span style="color: rgb(20, 217, 20);">FOR YOU</span> </h6>
+            <h3>Our Latest Thinking Based on Your Interests</h3>
+        </div>
+
+        <div class="grid-wrapper">
+            <div class="grid-item">
+                <a href="#" class="grid-link">
+                    <img src="../Resources/Imgs/pdf.png" alt="Item 1">
+                    <div class="grid-content">
+                        <p style="color: rgb(20, 217, 20);" class="grid-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span style="color: rgb(132, 132, 132);">/ PDF</span></p>
+                        <h2 class="grid-title">New Measures of success for Climate Adaptation and Resilience</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="#" class="grid-link">
+                    <img src="../Resources/Imgs/pdf.png" alt="Item 2">
+                    <div class="grid-content">
+                        <p style="color: rgb(20, 217, 20);" class="grid-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span style="color: rgb(132, 132, 132);">/ PDF</span></p>
+                        <h2 class="grid-title">New Measures of success for Climate Adaptation and Resilience</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="#" class="grid-link">
+                    <img src="../Resources/Imgs/pdf.png" alt="Item 3">
+                    <div class="grid-content">
+                        <p style="color: rgb(20, 217, 20);" class="grid-eyebrow">CLIMATE RISK, ADAPTATION, AND RESILIENCE <span style="color: rgb(132, 132, 132);">/ PDF</span></p>
+                        <h2 class="grid-title">New Measures of success for Climate Adaptation and Resilience</h2>
+                    </div>
+                </a>
+            </div>
+            <!-- Add more items as needed -->
+        </div>
+    </div>
+
+
+
+
+
+    <div class="full-width-div">
+        <h2 class="text1">Featured Insights: BCG’s most inspiring thought leadership on issues shaping the future of
+            business and society.</h2>
+        <form class="email-form">
+            <input type="email" class="email-input" placeholder="Enter your email" required>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    
+<!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+
+
+
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="follow-us">
+                <h3>FOLLOW US</h3>
+                <ul class="social-links">
+                    <li><a href="#"><img src="Resources/Imgs/ig.jpg" alt="Instagram"></a></li>
+                    <li><a href="#"><img src="Resources/Imgs/download.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="Resources/Imgs/x.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="Resources/Imgs/youtube.png" alt="YouTube"></a></li>
+                </ul>
+            </div>
+           
+        </div>
+        <div class="footer-middle">
+            <p>© 2024 Boston Consulting Group</p>
+            <hr>
+            <div class="footer-links">
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+                <a href="#">Subscribe</a>
+                <a href="#">Alumni</a>
+                <a href="#">About</a>
+                <a href="#">Offices</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Sitemap</a>
+                <a href="#">Responsible Disclosure</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Boston Consulting Group is an Equal Opportunity Employer. All qualified applicants will receive
+                consideration for employment without regard to race, color, age, religion, sex, sexual orientation,
+                gender identity / expression, national origin, protected veteran status, or any other characteristic
+                protected under federal, state or local law, where applicable, and those with criminal histories will be
+                considered in a
+            </p>
+        </div>
+
+
+                <script src="Script/index.js">
+
+
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

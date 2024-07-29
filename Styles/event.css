@@ -1,0 +1,605 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the header stays above other content */
+    background-color: #f8f9fa; /* Match the background color of the navbar */
+    border-bottom: 1px solid #e9ecef; /* Optional: Add a border for visual separation */
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Add padding to header */
+  }
+  
+  /* Menu Button Styling */
+  #menuToggle {
+    font-size: 3rem; /* Increase size of menu icon */
+    cursor: pointer;
+    color: #000; /* Color of the icon */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+    margin-right: 10px; /* Space between the menu button and the line */
+  }
+  
+  /* Vertical Line */
+  .header-line {
+    width: 0.5px; /* Thickness of the line */
+    height: 60px; /* Height of the line, adjust as needed */
+    background-color: #53dff3; /* Color of the line */
+    margin-right: 10px; /* Space between the line and the logo */
+  }
+  
+  /* Logo Styling */
+  header .navbar-brand {
+    font-size: 1.5rem; /* Adjust font size of logo */
+    margin-left: 0; /* Remove any default margin */
+  }
+  
+  /* Header Right Styling */
+  .header-right {
+    margin-left: auto; /* Push the content to the right */
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Search Container */
+  .search-container {
+    position: relative; /* Position for absolute child elements */
+    display: flex; /* Align children in a row */
+    align-items: center; /* Vertically center children */
+  }
+  
+  /* Move Search Icon Right */
+  #searchIcon {
+    font-size: 2rem; /* Adjust size of search icon */
+    cursor: pointer;
+    margin: 0 15px; /* Space between search icon and other elements */
+  }
+  
+  /* Search Input Styling */
+  #searchInput {
+    display: none; /* Hide by default */
+    width: 200px; /* Width of the input field */
+    padding: 5px;
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    z-index: 1; /* Ensure it appears above other content */
+  }
+  
+  /* Show the input field on hover */
+  .search-container:hover #searchInput {
+    display: block; /* Show the input field */
+  }
+  
+  /* Lines on either side of search icon */
+  #searchIcon::before,
+  #searchIcon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 0.5px; /* Adjust the length of the lines */
+    height: 60px; /* Thickness of the lines */
+    background-color: #53dff3; /* Color of the lines */
+    transform: translateY(-50%); /* Center the lines vertically */
+  }
+  
+  #searchIcon::before {
+    left: 5px; /* Adjust distance from the icon */
+  }
+  
+  #searchIcon::after {
+    right: -5px; /* Adjust distance from the icon */
+  }
+  
+  .header-right .btn {
+    font-size: 1rem; /* Adjust font size of login button */
+    padding: 5px 10px; /* Adjust padding of login button */
+  }
+  
+  /* Overlay Menu Styling */
+  .overlay-menu {
+    position: fixed;
+    top: 56px; /* Adjust according to the height of your header */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 56px); /* Full height minus the header height */
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none; /* Hide by default */
+    z-index: 999; /* Ensure it's below the header */
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%); /* Initially hide it above the viewport */
+  }
+  
+  .overlay-menu.show {
+    display: block;
+    transform: translateY(0); /* Slide in from the top */
+  }
+  
+  .overlay-menu .navbar-nav {
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  
+  .overlay-menu .navbar-nav .nav-item {
+    padding: 10px 0;
+  }
+  
+  /* Transform the menu icon to 'X' */
+  #menuToggle.open {
+    transform: rotate(90deg); /* Rotate the icon to form an 'X' */
+  }
+  
+  /* Rotate back the icon */
+  #menuToggle {
+    transform: rotate(0deg); /* Reset the rotation */
+  }
+  
+  /* Close Button Styling */
+  .close-btn {
+    display: none; /* Hide the close icon by default */
+    font-size: 3rem; /* Increase size of close icon */
+    cursor: pointer;
+    color: #000; /* Color of the icon */
+  }
+  
+  /* Remove the default button styles */
+  .login {
+    color: black; /* Text color */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Adjust font size */
+    padding: 5px 10px; /* Adjust padding */
+    cursor: pointer; /* Change cursor to pointer */
+    position: relative; /* Position for underline */
+    margin-left: 20px;
+  }
+  
+  /* Remove any background color on hover */
+  .login:hover {
+    background: none;
+    color: black;
+  }
+  
+  /* Underline on hover */
+  .login::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Position underline */
+    width: 100%;
+    height: 2px; /* Thickness of underline */
+    background-color: black; /* Color of underline */
+    transform: scaleX(0);
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Display underline on hover */
+  .login:hover::after {
+    transform: scaleX(1);
+  }
+
+  .carousel-inner img {
+    height: 500px; /* Set your desired height */
+    object-fit: cover;
+}
+
+.carousel-caption {
+   
+    background: rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 2em;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        bottom: 80px;
+        left: 10px;
+        right: 10px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.1); /* Darker background for better readability */
+        display: block !important; /* Ensure captions are displayed */
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.25rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.875rem;
+    }
+
+    .carousel-inner img {
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #333;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 2em 0;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 0.5em;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1em;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+  
+  .social-links li {
+    margin: 1px;
+   right: 50%;
+    padding: -12em;
+  }
+  
+  .social-links li a {
+    color: white;
+  }
+  
+  .social-links img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-top h3 {
+    margin-left: -39em;
+  }
+
+  .learn-more {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.learn-more .arrow {
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+    margin-left: 5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid currentColor;
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 15em;
+  }
+
+  .footer-top h3 {
+    margin-left: -8em;
+  }
+
+  .footer-top .footer-info,
+  .footer-top .follow-us {
+    margin-bottom: 1em;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 576px) {
+  .social-links {
+    display: flex;
+    gap: 1em;
+    padding: 0;
+    list-style: none;
+    margin-left: -5.5em;
+  }
+}
+
+
+
+
+
+.carousel {
+    position: relative;
+}
+
+.overlapping-div {
+    position: absolute;
+    top: 95%; /* Adjusted to push it up slightly */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Slightly reduced width */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1;
+}
+
+.overlapping-title {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.overlapping-description {
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #666;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.content-below {
+    margin-top: 150px; /* Add margin to push the content below the overlapping div */
+}
+
+@media (max-width: 768px) {
+    .overlapping-div {
+        top: 68%; /* Further adjust for mobile view */
+        width: 95%; /* Adjusted width for mobile */
+        padding: 15px; /* Adjusted padding for mobile */
+    }
+    
+    .search-input {
+        width: 60%; /* Adjusted width for mobile */
+    }
+
+    .search-button {
+        padding: 10px 15px; /* Adjusted padding for mobile */
+    }
+    
+    .content-below {
+        margin-top: 200px; /* Adjust margin for mobile view */
+    }
+}
+
+
+
+.event-container {
+    display: flex;
+    height: 25em;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin: 20px auto; /* Center the container */
+    width: 80%; /* Ensure it occupies 80% of the available width */
+    max-width: 1200px; /* Set a max-width to prevent it from becoming too wide */
+}
+
+.event-content {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure it occupies full width */
+}
+
+.image-container {
+    flex: 0 0 50%; /* Set to 50% of the container width */
+    margin-right: 20px; /* Add some space between image and text */
+}
+
+.event-image {
+    width: 100%;
+    height: 23em;
+    border-radius: 4px;
+}
+
+.text-content {
+    flex: 1;
+    text-align: left; /* Align text to the left */
+}
+
+.event-title {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.event-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.date-text,
+.location-text {
+    margin-right: 20px;
+    font-size: 1em;
+    color: #666;
+}
+
+.event-description {
+    margin: 0 0 10px;
+    font-size: 1em;
+    color: #666;
+}
+
+.event-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.event-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .event-container {
+        flex-direction: column;
+        align-items: center; /* Center align for mobile */
+        height: auto; /* Adjust height for mobile */
+        padding: 10px; /* Reduce padding for mobile */
+        width: 90%; /* Adjust width for mobile */
+    }
+
+    .event-content {
+        flex-direction: column;
+        align-items: center; /* Center align content for mobile */
+    }
+
+    .image-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+        flex: 0 0 auto;
+    }
+
+    .event-image {
+        width: 100%;
+        height: auto; /* Adjust height for mobile */
+    }
+
+    .text-content {
+        width: 100%; /* Ensure text content occupies full width */
+        text-align: center; /* Center text for mobile */
+    }
+
+    .event-title {
+        font-size: 1.2em; /* Adjust font size for mobile */
+    }
+
+    .event-details {
+        justify-content: center; /* Center details for mobile */
+        margin-bottom: 5px; /* Adjust margin for mobile */
+    }
+
+    .date-text,
+    .location-text {
+        margin-right: 10px; /* Adjust margin for mobile */
+        font-size: 0.9em; /* Adjust font size for mobile */
+    }
+
+    .event-description {
+        font-size: 0.9em; /* Adjust font size for mobile */
+        margin: 0 0 10px;
+    }
+
+    .event-button {
+        font-size: 0.9em; /* Adjust font size for mobile */
+        padding: 8px 16px; /* Adjust padding for mobile */
+    }
+}
+
+
+
+.full-width-div {
+    width: 100vw; /* Full viewport width */
+    padding: 2em; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in the element’s total width */
+    background: linear-gradient(
+      to bottom,
+      #f8e478,
+      #53dff3
+    ); /* Gradient from top to bottom */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .text {
+    font-size: 1.5em;
+    margin-right: 1em;
+    color: #333;
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+    .full-width-div {
+      flex-direction: column; /* Stack items vertically */
+      padding: 1em; /* Adjust padding for smaller screens */
+    }
+  
+    .text1 {
+      font-size: 1.2em; /* Smaller font size for smaller screens */
+      margin-bottom: 1em; /* Space below the text */
+    }
+
+  }
+  
+  @media (max-width: 480px) {
+    .text1 {
+      font-size: 1em; /* Further reduce font size for very small screens */
+      margin-bottom: 0.5em; /* Reduce space below the text */
+    }
+  }
+  
