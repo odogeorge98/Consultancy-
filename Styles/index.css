@@ -149,7 +149,7 @@ header .navbar-brand {
 
 .overlay-menu .navbar-nav {
   flex-direction: column;
-  padding-left: 20px;
+  padding-right: 70em;
 }
 
 .overlay-menu .navbar-nav .nav-item {
