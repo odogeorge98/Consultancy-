@@ -41,55 +41,7 @@ header {
     align-items: center;
   }
   
-  /* Search Container */
-  .search-container {
-    position: relative; /* Position for absolute child elements */
-    display: flex; /* Align children in a row */
-    align-items: center; /* Vertically center children */
-  }
-  
-  /* Move Search Icon Right */
-  #searchIcon {
-    font-size: 2rem; /* Adjust size of search icon */
-    cursor: pointer;
-    margin: 0 15px; /* Space between search icon and other elements */
-  }
-  
-  /* Search Input Styling */
-  #searchInput {
-    display: none; /* Hide by default */
-    width: 200px; /* Width of the input field */
-    padding: 5px;
-    border: 1px solid #ccc; /* Border color */
-    border-radius: 4px; /* Rounded corners */
-    z-index: 1; /* Ensure it appears above other content */
-  }
-  
-  /* Show the input field on hover */
-  .search-container:hover #searchInput {
-    display: block; /* Show the input field */
-  }
-  
-  /* Lines on either side of search icon */
-  #searchIcon::before,
-  #searchIcon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 0.5px; /* Adjust the length of the lines */
-    height: 60px; /* Thickness of the lines */
-    background-color: #53dff3; /* Color of the lines */
-    transform: translateY(-50%); /* Center the lines vertically */
-  }
-  
-  #searchIcon::before {
-    left: 5px; /* Adjust distance from the icon */
-  }
-  
-  #searchIcon::after {
-    right: -5px; /* Adjust distance from the icon */
-  }
-  
+ 
   .header-right .btn {
     font-size: 1rem; /* Adjust font size of login button */
     padding: 5px 10px; /* Adjust padding of login button */
