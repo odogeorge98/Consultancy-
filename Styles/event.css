@@ -376,6 +376,14 @@ header {
     }
 }
 
+@media (max-width: 480px) {
+    .overlapping-div {
+        top: 90%; /* Further adjust for mobile view */
+        width: 95%; /* Adjusted width for mobile */
+        padding: 15px; /* Adjusted padding for mobile */
+    }
+  }
+
 
 
 .event-container {
