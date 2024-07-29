@@ -384,6 +384,14 @@ header {
     }
   }
 
+  @media (max-width: 375px) and (max-height: 667px) {
+    .overlapping-div {
+        top: 90%; /* Further adjust for mobile view */
+        width: 95%; /* Adjusted width for mobile */
+        padding: 15px;
+    }
+    }
+
 
 
 .event-container {
