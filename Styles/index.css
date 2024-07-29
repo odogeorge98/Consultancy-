@@ -305,6 +305,22 @@ header .navbar-brand {
   display: block; /* Show the text on hover */
 }
 
+
+@media (max-width: 480px) {
+  .image-wrapper1 h3 {
+    top: 40%; /* Adjust top position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+   
+    position: absolute;
+  }
+
+  .learn{
+    top: 70%; 
+  }
+}
+
+
 .image-wrapper1 h5 {
   top: 37%; /* Adjust top position as needed */
   left: 50%;
@@ -1136,6 +1152,25 @@ a:hover {
 
 
 
+
+@media (max-width: 767.98px) {
+  .large-image-title {
+      font-size: 1.5rem;
+  }
+
+  .block-title {
+      font-size: 1.2rem;
+  }
+
+  .block-content {
+   
+      left: 10px;
+  }
+
+}
+
+
+
 @media (max-width: 480px) {
   .btn3 {
     margin-left: 6.5em;
@@ -1146,7 +1181,7 @@ a:hover {
   }
 
   .btn5 {
-    margin-left: 8em;
+    margin-left: 0em;
   }
 }
 
