@@ -364,3 +364,67 @@ header .navbar-brand {
     margin-left: 1em;
   }
 }
+
+
+
+
+
+
+
+
+
+
+                      /* WEBINAR PAGE CSS */
+
+                      .hero-section {
+                        background: url('../Resources/Imgs/webinar-hero.jpg') no-repeat center center/cover;
+                        color: #fff;
+                        padding: 60px 0;
+                        text-align: center;
+                    }
+                    
+                    .hero-section h1 {
+                        font-size: 3rem;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .hero-section p {
+                        font-size: 1.25rem;
+                        margin-bottom: 30px;
+                    }
+                    
+                    .register-form {
+                        max-width: 600px;
+                        margin: 0 auto;
+                        padding: 20px;
+                        background: rgba(255, 255, 255, 0.9);
+                        border-radius: 10px;
+                    }
+                    
+                    .register-form h2 {
+                        margin-bottom: 20px;
+                    }
+
+                    .btns{
+                        margin-left: -5em;
+                    }
+
+                    .card-body {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+            
+                    .btns {
+                        margin-top: 15px; /* Adjust spacing as needed */
+                    }
+            
+                    /* Responsive layout for mobile screens */
+
+                    @media (max-width: 480px) {
+                        .col-md-4 {
+                            flex: 0 0 50%; /* 2 cards per row on mobile */
+                            max-width: 50%;
+                        }
+                      }
