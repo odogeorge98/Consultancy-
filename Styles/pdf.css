@@ -1,330 +1,366 @@
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; /* Ensure the header stays above other content */
-    background-color: #f8f9fa; /* Match the background color of the navbar */
-    border-bottom: 1px solid #e9ecef; /* Optional: Add a border for visual separation */
-    display: flex;
-    align-items: center;
-    padding: 0 20px; /* Add padding to header */
-  }
-  
-  /* Menu Button Styling */
-  #menuToggle {
-    font-size: 3rem; /* Increase size of menu icon */
-    cursor: pointer;
-    color: #000; /* Color of the icon */
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
-    margin-right: 10px; /* Space between the menu button and the line */
-  }
-  
-  /* Vertical Line */
-  .header-line {
-    width: 0.5px; /* Thickness of the line */
-    height: 60px; /* Height of the line, adjust as needed */
-    background-color: #53dff3; /* Color of the line */
-    margin-right: 10px; /* Space between the line and the logo */
-  }
-  
-  /* Logo Styling */
-  header .navbar-brand {
-    font-size: 1.5rem; /* Adjust font size of logo */
-    margin-left: 0; /* Remove any default margin */
-  }
-  
-  /* Header Right Styling */
-  .header-right {
-    margin-left: auto; /* Push the content to the right */
-    display: flex;
-    align-items: center;
-  }
-  
- 
-  .header-right .btn {
-    font-size: 1rem; /* Adjust font size of login button */
-    padding: 5px 10px; /* Adjust padding of login button */
-  }
-  
-  /* Overlay Menu Styling */
-  .overlay-menu {
-    position: fixed;
-    top: 56px; /* Adjust according to the height of your header */
-    left: 0;
-    width: 100%;
-    height: calc(100% - 56px); /* Full height minus the header height */
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: none; /* Hide by default */
-    z-index: 999; /* Ensure it's below the header */
-    overflow-y: auto;
-    transition: transform 0.3s ease-in-out;
-    transform: translateY(-100%); /* Initially hide it above the viewport */
-  }
-  
-  .overlay-menu.show {
-    display: block;
-    transform: translateY(0); /* Slide in from the top */
-  }
-  
-  .overlay-menu .navbar-nav {
-    flex-direction: column;
-    padding-left: 20px;
-  }
-  
-  .overlay-menu .navbar-nav .nav-item {
-    padding: 10px 0;
-  }
-  
-  /* Transform the menu icon to 'X' */
-  #menuToggle.open {
-    transform: rotate(90deg); /* Rotate the icon to form an 'X' */
-  }
-  
-  /* Rotate back the icon */
-  #menuToggle {
-    transform: rotate(0deg); /* Reset the rotation */
-  }
-  
-  /* Close Button Styling */
-  .close-btn {
-    display: none; /* Hide the close icon by default */
-    font-size: 3rem; /* Increase size of close icon */
-    cursor: pointer;
-    color: #000; /* Color of the icon */
-  }
-  
-  /* Remove the default button styles */
-  .login {
-    color: black; /* Text color */
-    background: none; /* Remove background */
-    border: none; /* Remove border */
-    text-decoration: none; /* Remove underline */
-    font-size: 1rem; /* Adjust font size */
-    padding: 5px 10px; /* Adjust padding */
-    cursor: pointer; /* Change cursor to pointer */
-    position: relative; /* Position for underline */
-    margin-left: 20px;
-  }
-  
-  /* Remove any background color on hover */
-  .login:hover {
-    background: none;
-    color: black;
-  }
-  
-  /* Underline on hover */
-  .login::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px; /* Position underline */
-    width: 100%;
-    height: 2px; /* Thickness of underline */
-    background-color: black; /* Color of underline */
-    transform: scaleX(0);
-    transition: transform 0.3s ease; /* Smooth transition */
-  }
-  
-  /* Display underline on hover */
-  .login:hover::after {
-    transform: scaleX(1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the header stays above other content */
+  background-color: #f8f9fa; /* Match the background color of the navbar */
+  border-bottom: 1px solid #e9ecef; /* Optional: Add a border for visual separation */
+  display: flex;
+  align-items: center;
+  padding: 0 20px; /* Add padding to header */
+}
+
+/* Menu Button Styling */
+#menuToggle {
+  font-size: 3rem; /* Increase size of menu icon */
+  cursor: pointer;
+  color: #000; /* Color of the icon */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+  margin-right: 10px; /* Space between the menu button and the line */
+}
+
+#menuToggle:hover {
+    background-color: #007bff;
+    color: white; /* Optional: change icon color on hover */
   }
 
-  .carousel-inner img {
-    height: 500px; /* Set your desired height */
-    object-fit: cover;
+/* Vertical Line */
+.header-line {
+  width: 0.5px; /* Thickness of the line */
+  height: 60px; /* Height of the line, adjust as needed */
+  background-color: #53dff3; /* Color of the line */
+  margin-right: 10px; /* Space between the line and the logo */
+}
+
+/* Logo Styling */
+header .navbar-brand {
+  font-size: 1.5rem; /* Adjust font size of logo */
+  margin-left: 0; /* Remove any default margin */
+}
+
+/* Header Right Styling */
+.header-right {
+  margin-left: auto; /* Push the content to the right */
+  display: flex;
+  align-items: center;
+}
+
+.header-right .btn {
+  font-size: 1rem; /* Adjust font size of login button */
+  padding: 5px 10px; /* Adjust padding of login button */
+}
+
+/* Overlay Menu Styling */
+.overlay-menu {
+  position: fixed;
+  top: 56px; /* Adjust according to the height of your header */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 56px); /* Full height minus the header height */
+  background: linear-gradient(to bottom, #f8e478, #53dff3);
+  color: rgb(46, 45, 45);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none; /* Hide by default */
+  z-index: 999; /* Ensure it's below the header */
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%); /* Initially hide it above the viewport */
+}
+
+.overlay-menu.show {
+  display: block;
+  transform: translateY(0); /* Slide in from the top */
+}
+
+.overlay-menu .navbar-nav {
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.overlay-menu .navbar-nav .nav-item {
+  padding: 10px 0;
+}
+
+/* Transform the menu icon to 'X' */
+#menuToggle.open {
+  transform: rotate(90deg); /* Rotate the icon to form an 'X' */
+}
+
+/* Rotate back the icon */
+#menuToggle {
+  transform: rotate(0deg); /* Reset the rotation */
+}
+
+/* Close Button Styling */
+.close-btn {
+  display: none; /* Hide the close icon by default */
+  font-size: 3rem; /* Increase size of close icon */
+  cursor: pointer;
+  color: #000; /* Color of the icon */
+}
+
+/* Remove the default button styles */
+.login {
+  color: black; /* Text color */
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Adjust font size */
+  padding: 5px 10px; /* Adjust padding */
+  cursor: pointer; /* Change cursor to pointer */
+  position: relative; /* Position for underline */
+  margin-left: 20px;
+}
+
+/* Remove any background color on hover */
+.login:hover {
+  background: none;
+  color: black;
+}
+
+/* Underline on hover */
+.login::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Position underline */
+  width: 100%;
+  height: 2px; /* Thickness of underline */
+  background-color: black; /* Color of underline */
+  transform: scaleX(0);
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Display underline on hover */
+.login:hover::after {
+  transform: scaleX(1);
+}
+
+.carousel-inner img {
+  height: 500px; /* Set your desired height */
+  object-fit: cover;
 }
 
 .carousel-caption {
-   
-    background: rgba(0, 0, 0, 0.1); 
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 2em;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 2em;
 }
 
 @media (max-width: 768px) {
-    .carousel-caption {
-        bottom: 80px;
-        left: 10px;
-        right: 10px;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.1); /* Darker background for better readability */
-        display: block !important; /* Ensure captions are displayed */
-    }
+  .carousel-caption {
+    bottom: 80px;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+    background: rgba(
+      0,
+      0,
+      0,
+      0.1
+    ); /* Darker background for better readability */
+    display: block !important; /* Ensure captions are displayed */
+  }
 
-    .carousel-caption h5 {
-        font-size: 1.25rem;
-    }
+  .carousel-caption h5 {
+    font-size: 1.25rem;
+  }
 
-    .carousel-caption p {
-        font-size: 0.875rem;
-    }
+  .carousel-caption p {
+    font-size: 0.875rem;
+  }
 
-    .carousel-inner img {
-        height: 500px;
-        width: 100%;
-        object-fit: cover;
-    }
+  .carousel-inner img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 .pdf-download {
-    background-color: #ffffff !important; /* White background for the download boxes */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Light shadow for better visibility */
+  background-color: #ffffff !important; /* White background for the download boxes */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Light shadow for better visibility */
 }
 
 .pdf-download img {
-    max-width: 100px;
-    margin-bottom: 10px;
+  max-width: 100px;
+  margin-bottom: 10px;
 }
 
 .pdf-download h5 {
-    margin-top: 15px;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin-top: 15px;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .pdf-download p {
-    
-    margin: 10px 0;
-    color: #6c757d; /* Bootstrap's text-muted color */
+  margin: 10px 0;
+  color: #6c757d; /* Bootstrap's text-muted color */
 }
 
 .pdf-download a {
-    display: inline-block;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .pdf-download a .fas {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .pdf-download a:hover {
-    background-color: #0a58ca; /* Darker shade for hover effect */
-    color: #fff;
+  background-color: #0a58ca; /* Darker shade for hover effect */
+  color: #fff;
 }
 
 .green-background {
-    background-color: #28a745; /* Green background color */
-    color: #ffffff; /* White text color */
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
+  background-color: #28a745; /* Green background color */
+  color: #ffffff; /* White text color */
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 .green-background h2 {
-    color: #ffffff; /* White text for the title */
+  color: #ffffff; /* White text for the title */
 }
 
 .green-background p {
-    color: #eaf0e1; /* Slightly lighter white for paragraph text */
+  color: #eaf0e1; /* Slightly lighter white for paragraph text */
 }
 
 @media (max-width: 767px) {
-    .pdf-download {
-        margin-bottom: 20px;
-    }
+  .pdf-download {
+    margin-bottom: 20px;
+  }
 }
 
-
-
 .overlapping-div {
-    position: absolute;
-    top: 95%; /* Adjusted to push it up slightly */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%; /* Slightly reduced width */
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    z-index: 1;
+  position: absolute;
+  top: 95%; /* Adjusted to push it up slightly */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; /* Slightly reduced width */
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1;
 }
 
 .overlapping-title {
-    margin-bottom: 10px;
-    font-size: 1.5em;
+  margin-bottom: 10px;
+  font-size: 1.5em;
 }
 
 .overlapping-description {
-    margin-bottom: 20px;
-    font-size: 1em;
-    color: #666;
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: #666;
 }
 
 .search-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-    outline: none;
-    box-sizing: border-box;
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .search-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
 }
 
 .search-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .content-below {
-    margin-top: 150px; /* Add margin to push the content below the overlapping div */
+  margin-top: 150px; /* Add margin to push the content below the overlapping div */
 }
 
 @media (max-width: 768px) {
-    .overlapping-div {
-        top: 68%; /* Further adjust for mobile view */
-        width: 95%; /* Adjusted width for mobile */
-        padding: 15px; /* Adjusted padding for mobile */
-    }
-    
-    .search-input {
-        width: 60%; /* Adjusted width for mobile */
-    }
+  .overlapping-div {
+    top: 68%; /* Further adjust for mobile view */
+    width: 95%; /* Adjusted width for mobile */
+    padding: 15px; /* Adjusted padding for mobile */
+  }
 
-    .search-button {
-        padding: 10px 15px; /* Adjusted padding for mobile */
-    }
-    
-    .content-below {
-        margin-top: 200px; /* Adjust margin for mobile view */
-    }
+  .search-input {
+    width: 60%; /* Adjusted width for mobile */
+  }
+
+  .search-button {
+    padding: 10px 15px; /* Adjusted padding for mobile */
+  }
+
+  .content-below {
+    margin-top: 200px; /* Adjust margin for mobile view */
+  }
 }
 
 @media (max-width: 480px) {
-    .overlapping-div {
-        top: 70%; /* Further adjust for mobile view */
-        width: 95%; /* Adjusted width for mobile */
-        padding: 15px; /* Adjusted padding for mobile */
-    }
+  .overlapping-div {
+    top: 70%; /* Further adjust for mobile view */
+    width: 95%; /* Adjusted width for mobile */
+    padding: 15px; /* Adjusted padding for mobile */
+  }
+}
+
+@media (max-width: 375px) {
+  .overlapping-div {
+    top: -00%; /* Further adjust for mobile view */
+    width: 95%; /* Adjusted width for mobile */
+    padding: 15px;
+  }
+}
+
+.head1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.head1 h6 {
+  color: #0f0404;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .head1 {
+    margin-left: 0;
+    height: auto;
   }
 
-  @media (max-width: 375px) and (max-height: 667px) {
-    .overlapping-div {
-        top: 90%; /* Further adjust for mobile view */
-        width: 95%; /* Adjusted width for mobile */
-        padding: 15px;
-    }
-    }
+  .head1 h6 {
+    margin-left: 0;
+  }
+  .head1 h3 {
+    margin-left: 1em;
+  }
+}

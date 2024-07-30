@@ -19,6 +19,11 @@ header {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
     margin-right: 10px; /* Space between the menu button and the line */
   }
+
+  #menuToggle:hover {
+    background-color: #007bff;
+    color: white; /* Optional: change icon color on hover */
+  }
   
   /* Vertical Line */
   .header-line {
@@ -50,6 +55,12 @@ header {
   /* Overlay Menu Styling */
   .overlay-menu {
     position: fixed;
+    background: linear-gradient(
+    to bottom,
+    #f8e478,
+    #53dff3
+  ); 
+  color: rgb(46, 45, 45);
     top: 56px; /* Adjust according to the height of your header */
     left: 0;
     width: 100%;
