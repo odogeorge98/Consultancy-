@@ -1315,7 +1315,7 @@ a:hover {
   padding: 0;
   list-style: none;
   margin: 0;
-  margin-left: 35em;
+ 
 }
 
 .social-links li {
@@ -1366,7 +1366,7 @@ a:hover {
     gap: 1em;
     padding: 0;
     list-style: none;
-    margin-left: -6em;
+ 
   }
  
 }
@@ -1389,3 +1389,4 @@ a:hover {
 #scrollToTopBtn:hover {
   background-color: #333; /* Add a dark-grey background on hover */
 }
+.navbar-nav
