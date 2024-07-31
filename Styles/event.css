@@ -189,7 +189,11 @@ header {
     z-index: 99;
     border: none;
     outline: none;
-    background-color: #555;
+    background: linear-gradient(
+        to bottom,
+        #f8e478,
+        #53dff3
+      );
     color: white;
     cursor: pointer;
     padding: 15px;
@@ -198,6 +202,7 @@ header {
 
 #scrollToTopBtn:hover {
     background-color: #333;
+    border-radius: 5px;
 }
 
 /* Footer Styling */
@@ -234,6 +239,7 @@ header {
     padding: 0;
     list-style: none;
     margin: 0;
+    justify-content: center;
   }
   
   .social-links li {
@@ -249,10 +255,11 @@ header {
   .social-links img {
     width: 24px;
     height: 24px;
+    justify-content: center;
   }
 
   .footer-top h3 {
-    margin-left: -39em;
+    margin-left: 30em;
   }
 
   .learn-more {
@@ -278,13 +285,12 @@ header {
     margin-left: 15em;
   }
 
-  .footer-top h3 {
-    margin-left: -8em;
-  }
+ 
 
   .footer-top .footer-info,
   .footer-top .follow-us {
     margin-bottom: 1em;
+
   }
 
   .footer-links {
@@ -299,14 +305,9 @@ header {
     gap: 1em;
     padding: 0;
     list-style: none;
-    margin-left: -5.5em;
+    margin-left: -10.5em;
   }
-}
-
-
-
-
-
+} 
 .carousel {
     position: relative;
 }
@@ -755,3 +756,8 @@ header {
         padding-right: 0;
     }
 }
+.follow-us h3{
+    justify-content: center;
+    margin-left: 0em;
+}
+.social-links
