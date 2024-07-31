@@ -760,4 +760,57 @@ header {
     justify-content: center;
     margin-left: 0em;
 }
-.social-links
+
+/* SIGNUP PAGE */
+.signup-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h2 {
+    margin-bottom: 20px;
+}
+
+.signup-form .form-label {
+    font-weight: bold;
+}
+
+.signup-form .btns {
+    width: 100%;
+}
+
+/* LOGIN PAGE */
+
+.login-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.login-form .form-label {
+    font-weight: bold;
+}
+
+.login-form .btns {
+    width: 100%;
+}
+
+.login-form .text-center a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-form .text-center a:hover {
+    text-decoration: underline;
+}
