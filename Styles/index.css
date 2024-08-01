@@ -28,7 +28,7 @@ body {
   }
 }
 #menuToggle:hover {
-  background-color: #007bff;
+  background: linear-gradient(to bottom right, #f8e478, #53dff3);
   color: white; /* Optional: change icon color on hover */
 }
 
@@ -130,6 +130,8 @@ header .navbar-brand {
   padding: 5px 10px; /* Adjust padding of login button */
 }
 
+
+
 /* Overlay Menu Styling */
 .overlay-menu {
   position: fixed;
@@ -137,33 +139,108 @@ header .navbar-brand {
   left: 0;
   width: 100%;
   height: calc(100% - 56px); /* Full height minus the header height */
-  background: linear-gradient(
-    to bottom,
-    #f8e478,
-    #53dff3
-  ); 
+  background: linear-gradient(to bottom, #f8e478, #53dff3);
   color: rgb(46, 45, 45);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: none; /* Hide by default */
-  z-index: 999; /* Ensure it's below the header */
+  z-index: 999; /* Ensure it's above other content */
   overflow-y: auto;
   transition: transform 0.3s ease-in-out;
   transform: translateY(-100%); /* Initially hide it above the viewport */
+  display: flex; /* Use flex layout */
 }
 
 .overlay-menu.show {
-  display: block;
+  display: flex;
   transform: translateY(0); /* Slide in from the top */
 }
 
 .overlay-menu .navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
   flex-direction: column;
-  padding-right: 150em;
+  width: 40%; /* Adjust width as needed */
+  padding-right: 2em; /* Adjust padding for spacing */
 }
 
 .overlay-menu .navbar-nav .nav-item {
-  padding: 10px 0;
+  padding: 10px 0; /* Adjust padding for spacing between items */
+  display: flex; /* Flex display for alignment */
+  align-items: center; /* Align items vertically */
+  cursor: pointer; /* Indicate clickable item */
+  justify-content: space-between; /* Space between link and arrow */
 }
+
+.overlay-menu .navbar-nav .nav-link {
+  text-decoration: none;
+  color: #2e2d2d;
+  padding-bottom: 5px; /* Add padding for better spacing */
+  transition: color 0.2s; /* Smooth transition for color */
+}
+
+.overlay-menu .navbar-nav .nav-link:hover {
+  color: #0056b3; /* Change color on hover */
+}
+
+.overlay-menu .navbar-nav .nav-item .arrow {
+  font-size: 1em;
+  transition: transform 0.3s;
+}
+
+.overlay-menu .navbar-nav .nav-item.active .arrow {
+  transform: rotate(90deg); /* Rotate arrow when active */
+}
+
+.overlay-content {
+  display: none;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 35em;
+  overflow-y: auto;
+  z-index: 998; /* Below the overlay menu */
+  margin-left: 2px; /* Add space for the separator */
+}
+
+.overlay-content img {
+  width: 70%;
+  height: 15em;
+  margin-bottom: 15px;
+border-radius: 10px;
+}
+
+.overlay-content h3 {
+  margin-bottom: 15px;
+}
+
+.overlay-content p {
+  margin-bottom: 15px;
+}
+
+.overlay-content .btn {
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/* Separator styling */
+.separator {
+  width: 2px;
+  background-color: #ccc;
+  position: absolute;
+  left: 40%;
+  height: calc(100% - 56px);
+}
+
+
+
 
 /* Transform the menu icon to 'X' */
 #menuToggle.open {
@@ -242,13 +319,14 @@ header .navbar-brand {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
+  
 }
 
 .image-wrapper1 h3 {
   position: absolute;
   color: white;
-
+font-family: Serif;
   padding: 0.5em 1em;
   border-radius: 5px;
   z-index: 2; /* Ensure the text is above the image */
@@ -331,15 +409,16 @@ header .navbar-brand {
 
 
 .image-wrapper1 h5 {
-  top: 37%; /* Adjust top position as needed */
+  top: 44%; /* Adjust top position as needed */
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.2rem;
   position: absolute;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .image-wrapper1 a {
   position: absolute;
-  bottom: 30%; /* Position the button at the bottom */
+  bottom: 33%; /* Position the button at the bottom */
   left: 50%;
   transform: translateX(-50%);
   color: white;
@@ -350,6 +429,7 @@ header .navbar-brand {
 
 .image-wrapper1 a span {
   margin-left: 0.5em; /* Space between text and icon */
+  font-family: Cursive;
 }
 
 /* Mobile Styles */
@@ -366,6 +446,7 @@ header .navbar-brand {
     width: 100%;
     height: auto; /* Adjust height as needed for mobile */
     text-align: center;
+    text-align: left;
   }
 
   .image-wrapper1 h5,
@@ -378,11 +459,11 @@ header .navbar-brand {
     z-index: 2;
     width: 90%;
     margin-top: 2em;
-    text-align: center;
+    text-align: left;
   }
 
   .image-wrapper1 h5 {
-    top: 17%; /* Adjust top position as needed */
+    top: 25%; /* Adjust top position as needed */
   }
 
   .image-wrapper1 h3 {
@@ -390,7 +471,7 @@ header .navbar-brand {
   }
 
   .image-wrapper1 a {
-    bottom: 30%; /* Adjust bottom position as needed */
+    top: 55%; /* Adjust bottom position as needed */
   }
 
   .image-wrapper1 img {
@@ -405,7 +486,18 @@ header .navbar-brand {
 }
 
 
-
+.image-wrapper1 h5,
+  .image-wrapper1 h3,
+  .image-wrapper1 a {
+    position: absolute;
+    color: white;
+    padding: 0.5em;
+    border-radius: 5px;
+    z-index: 2;
+    width: 90%;
+    margin-top: 2em;
+    text-align: left;
+  }
 
 
 .head1 {
@@ -1394,3 +1486,21 @@ justify-content: center;
   background-color: #333;
   border-radius: 5px;
 }
+
+.container1{
+  justify-content: center;
+  margin-left: 5em;
+}
+@media (max-width: 768px) {
+ 
+
+}
+
+@media (max-width: 576px) {
+  .container1{
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+
