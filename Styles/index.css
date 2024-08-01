@@ -195,14 +195,15 @@ header .navbar-brand {
 
 .overlay-content {
   display: none;
-  background-color: white;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+  box-shadow: -2px 0 5px rgba(0.2, 0.2, 0.2, 0.2);
   padding: 20px;
   width: 35em;
   overflow-y: auto;
   z-index: 998; /* Below the overlay menu */
   margin-left: 2px; /* Add space for the separator */
 }
+
 
 .overlay-content img {
   width: 70%;
