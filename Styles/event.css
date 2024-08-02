@@ -381,6 +381,10 @@ header {
     list-style: none;
     margin-left: -10.5em;
   }
+  .footer-top h3 {
+    margin-left: -44em;
+  }
+
 } 
 .carousel {
     position: relative;
@@ -888,3 +892,15 @@ header {
 .login-form .text-center a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 576px) {
+    .footer-top h3 {
+      margin-left: -9em;
+    }
+
+    .social-links  {
+      margin-left:-13em;
+     
+    }
+
+    }

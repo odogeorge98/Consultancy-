@@ -1033,7 +1033,7 @@ a:hover {
 }
 
 
-
+.social-links
 
 
 
@@ -1442,6 +1442,7 @@ a:hover {
   list-style: none;
   margin: 0;
 justify-content: center;
+ 
 }
 
 .social-links li {
@@ -1492,7 +1493,7 @@ justify-content: center;
     gap: 1em;
     padding: 0;
     list-style: none;
- 
+    margin-left:-13em;
   }
  
 }
