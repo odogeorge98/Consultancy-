@@ -85,35 +85,32 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const navItems = document.querySelectorAll(".overlay-menu .nav-item");
+  const overlayContent = document.getElementById("overlayContent");
+  const learnMoreButton = overlayContent.querySelector(".btn");
 
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Remove active class from all items
+      navItems.forEach((nav) => nav.classList.remove("active"));
+      // Add active class to clicked item
+      item.classList.add("active");
 
+      // Retrieve data attributes
+      const imageSrc = item.getAttribute("data-image");
+      const title = item.getAttribute("data-title");
+      const description = item.getAttribute("data-description");
+      const link = item.getAttribute("data-link");
 
-document.addEventListener('DOMContentLoaded', () => {
-    const navItems = document.querySelectorAll('.overlay-menu .nav-item');
-    const overlayContent = document.getElementById('overlayContent');
-    const learnMoreButton = overlayContent.querySelector('.btn');
+      // Update content based on clicked item
+      overlayContent.querySelector("img").src = imageSrc;
+      overlayContent.querySelector("h3").textContent = title;
+      overlayContent.querySelector("p").textContent = description;
+      learnMoreButton.href = link;
 
-    navItems.forEach((item) => {
-        item.addEventListener('click', () => {
-            // Remove active class from all items
-            navItems.forEach((nav) => nav.classList.remove('active'));
-            // Add active class to clicked item
-            item.classList.add('active');
-
-            // Retrieve data attributes
-            const imageSrc = item.getAttribute('data-image');
-            const title = item.getAttribute('data-title');
-            const description = item.getAttribute('data-description');
-            const link = item.getAttribute('data-link');
-
-            // Update content based on clicked item
-            overlayContent.querySelector('img').src = imageSrc;
-            overlayContent.querySelector('h3').textContent = title;
-            overlayContent.querySelector('p').textContent = description;
-            learnMoreButton.href = link;
-
-            // Show the overlay content
-            overlayContent.style.display = 'block';
-        });
+      // Show the overlay content
+      overlayContent.style.display = "block";
     });
+  });
 });

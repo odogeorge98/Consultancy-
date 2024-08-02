@@ -904,3 +904,9 @@ header {
     }
 
     }
+
+    .logo img {
+      height: 45px;
+      width: 50px;
+       margin-left: 0; /* Remove any default margin */
+     }

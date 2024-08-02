@@ -63,8 +63,15 @@ header {
   margin-right: 10px; /* Space between the line and the logo */
 }
 
+.logo img {
+ height: 45px;
+ width: 50px;
+  margin-left: 0; /* Remove any default margin */
+}
+
+
 /* Logo Styling */
-header .navbar-brand {
+header .navbar-brand img {
   font-size: 1.5rem; /* Adjust font size of logo */
   margin-left: 0; /* Remove any default margin */
 }
@@ -1463,7 +1470,6 @@ justify-content: center;
 .footer-top h3 {
   margin: 0;
 }
-
 
 @media (max-width: 768px) {
   .footer-top {
