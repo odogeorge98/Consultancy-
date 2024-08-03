@@ -624,5 +624,12 @@ text-align: center;
 
 .address{
   justify-content: center;
-  text-align: center;
+  margin-left: 40%;
+}
+
+@media (max-width: 576px) {
+  .address{
+    justify-content: center;
+    margin-left: 5%;
+  }
 }
