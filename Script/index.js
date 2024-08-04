@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title.setAttribute("data-original", title.innerHTML);
 
       eyebrow.innerHTML = "NEW CATEGORY <span>/ NEW TEXT</span>";
-      title.textContent = "New Hover Title";
+      title.textContent = "Click me";
 
       // Change the background color of the carousel content
       content.style.background =
