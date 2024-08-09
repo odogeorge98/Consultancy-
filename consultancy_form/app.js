@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const path = require('path');
+const cors = require('cors');  // Import the cors package
 
 const app = express();
 const port = 3000;
@@ -9,6 +10,9 @@ const port = 3000;
 // Set up body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Use CORS middleware
+app.use(cors());
 
 // MySQL connection
 const db = mysql.createConnection({
@@ -52,4 +56,35 @@ app.post('/submit_form', (req, res) => {
 // Start server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
+});
+
+
+// Handle subscription form submission
+app.post('/subscribe', (req, res) => {
+    const { email } = req.body;
+
+    console.log('Received subscription request:', { email });
+
+    // Check if the email already exists
+    const checkQuery = 'SELECT * FROM subscribers WHERE email = ?';
+    db.query(checkQuery, [email], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server Error');
+        } else if (results.length > 0) {
+            // If email exists, send a message saying the email is already subscribed
+            res.status(400).send('This email is already subscribed.');
+        } else {
+            // Insert the email into the subscribers table
+            const query = 'INSERT INTO subscribers (email) VALUES (?)';
+            db.query(query, [email], (err, result) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).send('Server Error');
+                } else {
+                    res.send('Subscription successful!');
+                }
+            });
+        }
+    });
 });

@@ -651,7 +651,6 @@ a:hover {
   overflow: hidden; /* Hide overflow */
   flex-direction: row; /* Default layout for larger screens */
 }
-
 /* Style the text content */
 .text-content {
   flex: 1; /* Takes up half of the container */
