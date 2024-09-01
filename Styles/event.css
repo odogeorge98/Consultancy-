@@ -905,3 +905,55 @@ header {
       width: 50px;
        margin-left: 0; /* Remove any default margin */
      }
+
+
+/* 
+     newsletters */
+     .event-container {
+      display: flex;
+      flex-direction: column; /* Stack events vertically */
+      gap: 20px; /* Space between each event */
+      margin-bottom: 20px; /* Space below each event */
+  }
+  
+  .event-content {
+      display: flex;
+      align-items: flex-start; /* Align items at the start of the container */
+      gap: 20px; /* Space between image and text content */
+      border: 1px solid #ddd; /* Light border around the event */
+      border-radius: 8px; /* Rounded corners */
+      padding: 15px; /* Padding inside the event container */
+      background-color: #fff; /* White background for the event */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  }
+  
+  .image-container {
+      flex: 1; /* Allow image container to take up space */
+  }
+  
+  .event-image {
+      width: 100%; /* Make image fill the container */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 8px; /* Rounded corners for the image */
+  }
+  
+  .text-content {
+      flex: 2; /* Allow text content to take up more space */
+  }
+  
+  .event-title {
+      font-size: 1.5rem; /* Larger font size for title */
+      color: #333; /* Dark color for title */
+      margin-bottom: 10px; /* Space below the title */
+  }
+  
+  .event-description {
+      font-size: 1rem; /* Standard font size for description */
+      color: #555; /* Slightly lighter color for description */
+      margin-top: 10px; /* Space above the description */
+  }
+  
+  .event-details {
+      margin-bottom: 10px; /* Space below additional details */
+  }
+  

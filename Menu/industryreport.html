@@ -146,106 +146,10 @@
 </div><br><br><br> <br><br><br><br><br>    --><br> <br>
 
 <h1 style="text-align: center; color: rgb(29, 29, 237);">OUR INDUSTRY REPORT</h1>
-<div class="event-container">
-    <div class="event-content">
-        <div class="image-container">
-            <img src="../Resources/Imgs/download (9).webp" alt="Event Image" class="event-image">
-        </div>
-        <div class="text-content">
-            <h2 class="event-title">Government has said it will be removing a commodity code requirement for export declarations</h2>
-            <div class="event-details">
-
-            </div>
-            <p class="event-description">The government has said it will be removing a commodity code requirement for export declarations submitted via the Customs Declaration Service (CDS).
-
-                The change will apply to those submitting export declarations under the Export Memorandum of Understanding (Export MoU) via CDS.
-                
-                The government agency has said that it is giving advanced notice so that traders can take action and plan accordingly.
-                
-                The change will take effect from today after which a commodity code will no longer be needed, providing the supplementary declaration is submitted through CDS.
-                
-                HMRC says that those using the old Customs Handling of Import and Export Freight (CHIEF) system do not need to take any further action.
-                
-                The Export MoU is a measure agreed to between the government and the express delivery industry, described by HMRC “as an easement for low-value post and parcel exports travelling from Great Britain and Northern Ireland”.
-                
-                It is frequently used by Fast Parcel Operators (FPOs) and reduces the amount of paperwork needed for smaller exports by clearing a large proportion of parcels that express operators regularly move across borders.
-                
-                In order for a package to qualify, the goods value needs to be less than £900 and must not be controlled, restricted or subject to other customs procedures (like inward or outward processing or customs warehousing).
-                
-                HMRC also used the opportunity to remind traders to complete their move to using CDS for export ahead of the 30 March deadline.
-                
-                The long-running CHIEF-to-CDS switchover is approaching its final stages, with the government saying that it is working to help businesses complete the move ahead of the final deadline.
-                
-                CHIEF hasn’t been operational for import declarations since 30 September 2022.</p>
-        </div>
-    </div>
+<div class="event-container" id="events-container">
+    <!-- Events will be populated here by JavaScript -->
 </div>
 
-<div class="event-container">
-    <div class="event-content">
-        <div class="image-container">
-            <img src="../Resources/Imgs/download (10).webp" alt="Event Image" class="event-image">
-        </div>
-        <div class="text-content">
-            <h2 class="event-title">Event Title</h2>
-            <div class="event-details">
-
-            </div>
-            <p class="event-description">Join us for an insightful event that explores the latest trends in technology and innovation.</p>
-           
-        </div>
-    </div>
-</div>
-
-
-<div class="event-container">
-    <div class="event-content">
-        <div class="image-container">
-            <img src="../Resources/Imgs/download (11).webp" alt="Event Image" class="event-image">
-        </div>
-        <div class="text-content">
-            <h2 class="event-title">Event Title</h2>
-            <div class="event-details">
-
-            </div>
-            <p class="event-description">Join us for an insightful event that explores the latest trends in technology and innovation.</p>
-           
-        </div>
-    </div>
-</div>
-
-<div class="event-container">
-    <div class="event-content">
-        <div class="image-container">
-            <img src="../Resources/Imgs/download (12).webp" alt="Event Image" class="event-image">
-        </div>
-        <div class="text-content">
-            <h2 class="event-title">Event Title</h2>
-            <div class="event-details">
-
-            </div>
-            <p class="event-description">Join us for an insightful event that explores the latest trends in technology and innovation.</p>
-           
-        </div>
-    </div>
-</div>
-
-
-<div class="event-container">
-    <div class="event-content">
-        <div class="image-container">
-            <img src="../Resources/Imgs/download (13).webp" alt="Event Image" class="event-image">
-        </div>
-        <div class="text-content">
-            <h2 class="event-title">Event Title</h2>
-            <div class="event-details">
-
-            </div>
-            <p class="event-description">Join us for an insightful event that explores the latest trends in technology and innovation.</p>
-           
-        </div>
-    </div>
-</div>
  
 
 
@@ -335,7 +239,36 @@
                 gender identity / expression, national origin, protected veteran status, or any other characteristic
                 protected under federal, state or local law, where applicable, and those with criminal histories will be
                 considered in a...
+                <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    // Fetch events from the server using the Fetch API
+    fetch('http://localhost:8080/api/admin_event')
+        .then(response => response.json())
+        .then(data => {
+            const eventsContainer = document.getElementById('events-container');
 
+            data.events.forEach(event => {
+                const eventHtml = `
+                    <div class="event-content">
+                        <div class="image-container">
+                            <img src="http://localhost:8080/uploads/${event.image_path}" alt="${event.title}" class="event-image">
+                        </div>
+                        <div class="text-content">
+                            <h2 class="event-title">${event.title}</h2>
+                            <div class="event-details">
+                                <!-- You can add more event details here if needed -->
+                            </div>
+                            <p class="event-description">${event.description}</p>
+                        </div>
+                    </div>
+                `;
+                eventsContainer.insertAdjacentHTML('beforeend', eventHtml);
+            });
+        })
+        .catch(error => console.error('Error fetching events:', error));
+});
+
+                </script>
                 <script src="../Script/event.js"></script>
                 <script src="../Script/index.js"></script>
                 <script src="../Script/form.js"></script>

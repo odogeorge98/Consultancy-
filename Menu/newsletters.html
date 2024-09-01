@@ -145,41 +145,12 @@
     </div>
 
      <!-- Responsive Div Section -->
-     <div class="container my-5">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h2 class="mb-3">Government has said it will be removing a commodity code requirement for export declarations</h2>
-                <p>The government has said it will be removing a commodity code requirement for export declarations submitted via the Customs Declaration Service (CDS).
-
-                    The change will apply to those submitting export declarations under the Export Memorandum of Understanding (Export MoU) via CDS.
-                    
-                    The government agency has said that it is giving advanced notice so that traders can take action and plan accordingly.
-                    
-                    The change will take effect from today after which a commodity code will no longer be needed, providing the supplementary declaration is submitted through CDS.
-                    
-                    HMRC says that those using the old Customs Handling of Import and Export Freight (CHIEF) system do not need to take any further action.
-                    
-                    The Export MoU is a measure agreed to between the government and the express delivery industry, described by HMRC “as an easement for low-value post and parcel exports travelling from Great Britain and Northern Ireland”.
-                    
-                    It is frequently used by Fast Parcel Operators (FPOs) and reduces the amount of paperwork needed for smaller exports by clearing a large proportion of parcels that express operators regularly move across borders.
-                    
-                    In order for a package to qualify, the goods value needs to be less than £900 and must not be controlled, restricted or subject to other customs procedures (like inward or outward processing or customs warehousing).
-                    
-                    HMRC also used the opportunity to remind traders to complete their move to using CDS for export ahead of the 30 March deadline.
-                    
-                    The long-running CHIEF-to-CDS switchover is approaching its final stages, with the government saying that it is working to help businesses complete the move ahead of the final deadline.
-                    
-                    CHIEF hasn’t been operational for import declarations since 30 September 2022.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <img src="../Resources/Imgs/download (5).webp" class="img-fluid responsive-img" alt="Responsive Image">
-            </div>
-        </div>
+     <div class="container my-5 newsletter-container-1" id="newsletter-container">
+        <!-- Newsletters will be dynamically inserted here -->
     </div>
-    <hr>
+    
 
-    <div class="container my-5">
+    <!-- <div class="container my-5">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <img src="../Resources/Imgs/download (10).webp" class="img-fluid responsive-img" alt="Responsive Image">
@@ -291,7 +262,8 @@
             </div>
         </div>
     </div>
-    <hr>
+    <hr> -->
+
     <div class="grid-container">
         <div class="head1">
             <h6>RECOMMENDED <span style="color: rgb(20, 217, 20);">FOR YOU</span> </h6>
@@ -367,8 +339,71 @@
         </div>
         <div class="footer-bottom">
             <p>Boston Consulting Group is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, age, religion, sex, sexual orientation, gender identity / expression, national origin, protected veteran status, or any other characteristic protected under federal, state or local law, where applicable, and those with criminal histories will be considered in a...
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+    fetch('http://localhost:8080/api/index')
+        .then(response => response.json())
+        .then(data => {
+            const newsletters = data.newsletters;
+            const container = document.getElementById('newsletter-container');
 
-                <script src="../Script/newsletters.js"></script>
+            newsletters.forEach((newsletter, index) => {
+                // Create the structure for each newsletter
+                const row = document.createElement('div');
+                row.className = 'row align-items-center mb-5';
+
+                // Determine the column order based on the index (even or odd)
+                const colText = document.createElement('div');
+                const colImage = document.createElement('div');
+
+                if (index % 2 === 0) {
+                    colText.className = 'col-md-6 order-md-1';
+                    colImage.className = 'col-md-6 order-md-2';
+                } else {
+                    colText.className = 'col-md-6 order-md-2';
+                    colImage.className = 'col-md-6 order-md-1';
+                }
+
+                // Add the title
+                const title = document.createElement('h2');
+                title.className = 'mb-3';
+                title.textContent = newsletter.title;
+
+                // Add the content
+                const content = document.createElement('p');
+                content.textContent =newsletter.content;
+
+                // Append title and content to the text column
+                colText.appendChild(title);
+                colText.appendChild(content);
+
+                // Add the image
+                if (newsletter.image_path) {
+                    const img = document.createElement('img');
+                    img.src = `http://localhost:8080/uploads/${newsletter.image_path}`;
+                    img.className = 'img-fluid responsive-img';
+                    img.alt = newsletter.title;
+
+                    // Append image to the image column
+                    colImage.appendChild(img);
+                }
+
+                // Append both columns to the row
+                row.appendChild(colText);
+                row.appendChild(colImage);
+
+                // Append the row to the container
+                container.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching newsletters:', error);
+        });
+});
+
+                </script>
+                <script src="../Script/newsletters.js">
+                </script>
                 <script src="../Script/index.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

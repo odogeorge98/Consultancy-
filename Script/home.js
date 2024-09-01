@@ -26,3 +26,4 @@ document.getElementById("closeMenu").addEventListener("click", function () {
   menuToggle.classList.add("show"); // Show menu icon
   this.classList.remove("show"); // Hide close icon
 });
+

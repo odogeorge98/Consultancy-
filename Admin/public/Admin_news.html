@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Admin</title>
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css">
+    <style>
+
+h1{
+    text-align: center;
+    font-size: 5em
+}
+
+.newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control, 
+.form-control-file, 
+.btn {
+    width: 100%;
+}
+
+button.btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.mt-5 {
+    margin-top: 40px;
+}
+
+.dashboard .btn-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard .btn {
+    min-width: 125px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+
+    margin: 0 5px;
+}
+
+a{
+  text-decoration: none;
+  
+}
+
+@media (max-width: 576px) {
+    .files {
+        margin-top: -15em; /* Adjusted margin-top for better alignment on mobile */
+    }
+
+    .dashboard .btn-row {
+        display: flex;
+        flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+        justify-content: center; /* Space buttons evenly */
+    }
+
+    .dashboard .btn {
+        width: 48%; /* Set each button to take roughly half the width */
+        margin: 10px 0; /* Add margin for spacing between buttons vertically */
+    }
+    h1{
+    text-align: center;
+    font-size: 3.5em;
+   font-family: 'Times New Roman', Times, serif;
+}
+
+
+}
+.open {
+    width: 473px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: inline-flex;
+    animation-name: open;
+    text-align: center;
+}
+@keyframes open {
+    from { width: 0 }
+}
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="dashboard">
+            <h1 class="cssanimation open " style="color:rgb(17, 17, 96)"> Newsletters Dashboard</h1>
+            <div class="btn-row mt-4">
+                <a href="Admin_news.html" class="btn btn-danger mx-2">Newsletters</a>
+                <a href="admin.html" class="btn btn-danger mx-2">PDFs</a>
+                <a href="admin_event.html" class="btn btn-danger mx-2">Industry Report</a>
+                <a href="#link4" class="btn btn-danger mx-2">Link </a>
+            </div>
+        </div><br><br><br>
+        
+        <div class="newsletter-container">
+            <h2 style="color:rgb(0, 0, 255)">Add Newsletter</h2>
+            <form id="addNewsletterForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control-file" id="image" name="image">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Newsletter</button>
+            </form>
+        
+            <h2 class="mt-5" style="color: rgb(20, 228, 20);">Update Newsletter</h2>
+            <form id="updateNewsletterForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="updateId">Newsletter ID</label>
+                    <input type="number" class="form-control" id="updateId" name="updateId" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateTitle">Title</label>
+                    <input type="text" class="form-control" id="updateTitle" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="updateContent">Content</label>
+                    <textarea class="form-control" id="updateContent" name="content" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="updateImage">Image</label>
+                    <input type="file" class="form-control-file" id="updateImage" name="image">
+                </div>
+                <button type="submit" class="btn btn-primary" >Update Newsletter</button>
+            </form>
+        
+            <h2 class="mt-5" style="color: red;">Delete Newsletter</h2>
+            <form id="deleteNewsletterForm">
+                <div class="form-group">
+                    <label for="deleteId">Newsletter ID</label>
+                    <input type="number" class="form-control" id="deleteId" name="deleteId" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Delete Newsletter</button>
+            </form>
+        
+
+
+
+
+            
+            <h2 class="mt-5">All Newsletters</h2>
+            <div id="newsletterList"></div>
+        </div>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+   
+    <script>
+        // Add newsletter
+        document.getElementById('addNewsletterForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            try {
+                const response = await fetch('http://localhost:8080/api/index', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Error adding newsletter:', errorText);
+                    alert('Error adding newsletter.');
+                } else {
+                    alert('Newsletter added successfully.');
+                    e.target.reset();
+                    loadNewsletters();
+                }
+            } catch (error) {
+                console.log('Error adding newsletter:', error);
+                alert('Error adding newsletter.');
+            }
+        });
+
+        // Update newsletter
+        document.getElementById('updateNewsletterForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const id = document.getElementById('updateId').value;
+            try {
+                const response = await fetch(`http://localhost:8080/api/index/${id}`, {
+                    method: 'PUT',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Error updating newsletter:', errorText);
+                    alert('Error updating newsletter.');
+                } else {
+                    alert('Newsletter updated successfully.');
+                    e.target.reset();
+                    loadNewsletters();
+                }
+            } catch (error) {
+                console.error('Error updating newsletter:', error);
+                alert('Error updating newsletter.');
+            }
+        });
+
+        // Delete newsletter
+        document.getElementById('deleteNewsletterForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('deleteId').value;
+            try {
+                const response = await fetch(`http://localhost:8080/api/index/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Error deleting newsletter:', errorText);
+                    alert('Error deleting newsletter.');
+                } else {
+                    alert('Newsletter deleted successfully.');
+                    loadNewsletters();
+                }
+            } catch (error) {
+                console.error('Error deleting newsletter:', error);
+                alert('Error deleting newsletter.');
+            }
+        });
+
+        // Load all newsletters
+        async function loadNewsletters() {
+            try {
+                const response = await fetch('http://localhost:8080/api/index');
+                const data = await response.json();
+                const list = document.getElementById('newsletterList');
+                list.innerHTML = '';
+                data.newsletters.forEach(newsletter => {
+                    list.innerHTML += `
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                 ${newsletter.image_path ? `<img src="http://localhost:8080/uploads/${newsletter.image_path}" alt="${newsletter.title}" class="img-fluid">` : ''}
+                                  <h5 class="card-title">ID: ${newsletter.id}</h5>
+                                <h5 class="card-title">${newsletter.title}</h5>
+                                <p class="card-text">${newsletter.content}</p>
+                               
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                console.error('Error loading newsletters:', error);
+            }
+        }
+
+        // Initial load
+        loadNewsletters();
+    </script>
+</body>
+</html>

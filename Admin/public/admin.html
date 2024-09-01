@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css">
+    <style>
+      /* Custom styling for the dashboard */
+      .dashboard-header {
+          background-color: #f8f9fa;
+          padding: 2rem 0;
+          border-bottom: 1px solid #e9ecef;
+      }
+
+      .btn-custom {
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: .25rem;
+          padding: .75rem 1.25rem;
+          text-decoration: none;
+          font-size: 1rem;
+          transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn-custom:hover {
+          background-color: #0056b3;
+          color: #fff;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-custom:focus, .btn-custom:active {
+          outline: none;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+
+      .file-list .file-item {
+          border: 1px solid #dee2e6;
+          border-radius: .25rem;
+          padding: .75rem;
+          margin-bottom: .75rem;
+          background-color: #fff;
+      }
+
+      .file-item {
+            margin-bottom: 1.5rem;
+        }
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: .5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-img-top {
+            object-fit: cover;
+            height: 180px; /* Adjust as needed */
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: .25rem;
+            padding: .75rem 1.25rem;
+            font-size: 1rem;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: .25rem;
+            padding: .75rem 1.25rem;
+            font-size: 1rem;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+/* Custom styling for the form elements */
+.form-control {
+    border-radius: .375rem; /* Rounded corners */
+    border: 1px solid #ced4da; /* Light border */
+    box-shadow: none; /* Remove default shadow */
+    padding: .75rem 1.25rem; /* Padding */
+    font-size: 1rem; /* Font size */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .25); /* Light shadow on focus */
+}
+
+main
+.btn-custom {
+    background-color: #007bff; /* Custom background color */
+    color: #fff; /* Custom text color */
+    border: none; /* Remove default border */
+    border-radius: .375rem; /* Rounded corners */
+    padding: .75rem 1.5rem; /* Padding */
+    font-size: 1rem; /* Font size */
+}
+
+.btn-custom:hover {
+    background-color: #0056b3; /* Darker background on hover */
+    color: #fff; /* Keep text color on hover */
+}
+
+.btn-custom:focus, .btn-custom:active {
+    box-shadow: none; /* Remove shadow on focus/active */
+}
+
+.file-input-label {
+    display: inline-block;
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: .75rem 1.25rem; /* Padding */
+    background-color: #f8f9fa; /* Background color */
+    border-radius: .375rem; /* Rounded corners */
+    border: 1px solid #ced4da; /* Border color */
+    font-size: 1rem; /* Font size */
+    text-align: center; /* Center align text */
+}
+/* Container and Card Styling */
+.container {
+  max-width: 80%;
+    margin: 0 auto; /* Center horizontally */
+   
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Center text within container */
+}
+
+.main-cont {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.card {
+    border-radius: .375rem; /* Rounded corners */
+    border: 1px solid #dee2e6; /* Light border */
+    padding: 2rem; /* Padding inside card */
+    background-color: #fff; /* Card background color */
+}
+
+.card-body {
+    padding: 1.5rem; /* Padding inside card body */
+}
+
+/* Form Input Styling */
+.form-control {
+    border-radius: .375rem; /* Rounded corners */
+    border: 1px solid #ced4da; /* Light border */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .25); /* Light shadow on focus */
+}
+
+/* Button Styling */
+.btn-custom {
+    background-color: #007bff; /* Custom background color */
+    color: #fff; /* Custom text color */
+    border: none; /* Remove default border */
+    border-radius: .375rem; /* Rounded corners */
+    padding: .75rem 1.5rem; /* Padding */
+    font-size: 1rem; /* Font size */
+}
+
+.btn-custom:hover {
+    background-color: #0056b3; /* Darker background on hover */
+    color: #fff; /* Keep text color on hover */
+}
+
+.btn-custom:focus, .btn-custom:active {
+    box-shadow: none; /* Remove shadow on focus/active */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .col-md-8, .col-lg-6 {
+        width: 100% !important; /* Full width on smaller screens */
+    }
+}
+
+/* Base styles for input fields */
+.input {
+    width: 100%; /* Make the input full-width by default */
+    max-width: 40em; /* Limit the maximum width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Optional: Add padding for better aesthetics */
+.input {
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+}
+
+/* Media query for smaller screens and mobile devices */
+@media (max-width: 768px) {
+    .input {
+        max-width: 100%; /* Ensure the input takes full width on smaller screens */
+    }
+}
+
+.dashboard {
+    background-color: white;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    box-sizing: border-box; /* Ensure padding and borders are included in the width */
+   
+}
+
+.flipXZoomIn { animation-name: flipXZoomIn }
+@keyframes flipXZoomIn {
+    from {
+      transform: perspective(600px) rotateX(0deg) scale(1);
+      animation-timing-function: ease-out;
+    }
+    40% {
+      transform: perspective(600px) rotateX(-180deg) scale(1.8);
+      animation-timing-function: ease-out;
+    }
+    80% {
+      transform: perspective(600px) rotateX(-360deg) scale(.7);
+      animation-timing-function: ease-in;
+    }
+    to  { transform: scale(1) }
+}
+
+.files {
+    margin-top: -19em; /* Initial margin for larger screens */
+}
+
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .files {
+        margin-top: -20em; /* Adjusted margin for tablets and smaller screens */
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 576px) {
+    .files {
+        margin-top: -15em; /* Adjusted margin-top for better alignment on mobile */
+    }
+
+    .dashboard .btn-row {
+        display: flex;
+        flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+        justify-content: center; /* Space buttons evenly */
+    }
+
+    .dashboard .btn {
+        width: 48%; /* Set each button to take roughly half the width */
+        margin: 10px 0; /* Add margin for spacing between buttons vertically */
+    }
+}
+
+
+
+h2{
+font-size: 5em;
+
+}
+.dashboard .btn-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line on smaller screens */
+}
+
+.dashboard .btn {
+    min-width: 125px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px 5px; /* Increased vertical margin for better spacing on smaller screens */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+
+  
+    .dashboard .btn {
+        width: 100%; /* Make buttons full-width on smaller screens */
+        margin: 5px 0; /* Reduce margin to fit well on small screens */
+    }
+
+    .dashboard .btn-row {
+        justify-content: flex-start; /* Align buttons to the start on smaller screens */
+    }
+    h2{
+font-size: 4em;
+
+}
+}
+
+a{
+  text-decoration: none;
+  
+}
+
+h3{
+  color: #1033c0;
+}
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="dashboard-header mb-5 text-center dashboard">
+      <h2 class="cssanimation flipXZoomIn" style="color: rgb(34, 9, 125);">PDFs Dashboard</h2>
+      <div class="btn-row mt-4">
+          <a href="Admin_news.html" class="btn btn-danger mx-2">Newsletters</a>
+          <a href="admin.html" class="btn btn-danger mx-2">PDFs</a>
+          <a href="admin_event.html" class="btn btn-danger mx-2">Industry Report</a>
+          <a href="#link4" class="btn btn-danger mx-2">Link </a>
+      </div>
+  </div>
+  
+
+      <div class="container main-cont">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-center mb-4">Upload New PDFs</h3>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label for="pdfTitle" class="form-label">Title</label><br>
+                        <input type="text" class="form-control form-control-lg input" id="pdfTitle" name="title" placeholder="Enter report title" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="pdfDescription" class="form-label">Description</label><br>
+                        <textarea class="form-control form-control-lg input" id="pdfDescription" name="description" rows="3" placeholder="Enter report description" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="fileInput" class="form-label input">Choose PDF</label><br>
+                        <input type="file" class="form-control form-control-lg input" id="fileInput" name="file" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="btn btn-custom btn-lg w-100">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="files">
+          <h3 class="text-center mb-4">Uploaded Files</h3>
+          <div id="fileList" class="row file-list">
+              <!-- File items will be added here dynamically -->
+
+
+          </div>
+      </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
+  <script type="text/javascript" src="cssanimation-gsap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+ 
+  <script>
+    // Function to fetch and display all uploaded files
+    function fetchFiles() {
+        fetch('http://localhost:8080/api/files') // Fetch all files
+            .then(response => response.json())
+            .then(data => {
+                const fileList = document.getElementById('fileList');
+                fileList.innerHTML = '';
+
+                data.files.forEach(file => {
+                    const fileItem = document.createElement('div');
+                    fileItem.classList.add('col-md-4', 'mb-4');
+
+                    fileItem.innerHTML = `
+                        <div class="card">
+                            <img src="../../Resources/Imgs/pdf.png" class="card-img-top" alt="PDF Icon">
+                            <div class="card-body">
+                                <h5 class="card-title">${file.title}</h5>
+                                <p class="card-text">${file.description}</p>
+                                <a href="../uploads/${file.name}" download class="btn btn-custom">Download</a>
+                                <button class="btn btn-danger mt-2" onclick="deleteFile('${file.name}')">Delete</button>
+                            </div>
+                        </div><br>
+                    `;
+
+                    fileList.appendChild(fileItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching files:', error);
+            });
+    }
+
+    // Function to handle file deletion
+    function deleteFile(fileName) {
+        fetch(`http://localhost:8080/api/admin/delete?file=${fileName}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.text())
+        .then(message => {
+            alert(message);
+            fetchFiles(); // Refresh the file list
+        })
+        .catch(error => {
+            console.error('Error deleting file:', error);
+            alert('Error deleting file.');
+        });
+    }
+
+    // Initialize the page by fetching the files
+    document.addEventListener("DOMContentLoaded", function () {
+        fetchFiles(); // Fetch files on page load
+
+        document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData();
+            formData.append('title', document.getElementById('pdfTitle').value);
+            formData.append('description', document.getElementById('pdfDescription').value);
+            formData.append('file', document.getElementById('fileInput').files[0]);
+
+            fetch('http://localhost:8080/api/admin/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+                fetchFiles(); // Refresh the file list
+            })
+            .catch(error => {
+                console.error('Error uploading file:', error);
+                alert('Error uploading file.');
+            });
+        });
+    });
+</script>
+
+</body>
+
+</html>
