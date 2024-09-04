@@ -125,12 +125,12 @@ h1{
 
     <div class="container mt-5">
         <div class="dashboard">
-            <h1 class="cssanimation flipXZoomIn "> industryreport Dashboard</h1>
+            <h1 class="cssanimation flipXZoomIn "> Industryreport Dashboard</h1>
             <div class="btn-row mt-4">
                 <a href="Admin_news.html" class="btn btn-danger mx-2">Newsletters</a>
                 <a href="admin.html" class="btn btn-danger mx-2">PDFs</a>
                 <a href="admin_event.html" class="btn btn-danger mx-2">Industry Report</a>
-                <a href="#link4" class="btn btn-danger mx-2">Link </a>
+                <a href="admin_webiner.html" class="btn btn-danger mx-2">Webinars </a>
             </div>
         </div><br><br><br>
         
@@ -206,7 +206,7 @@ document.getElementById('addEventForm').addEventListener('submit', async (e) => 
     e.preventDefault();
     const formData = new FormData(e.target);
     try {
-        const response = await fetch('http://localhost:6060/api/admin_event', {
+        const response = await fetch('http://localhost:8080/api/admin_event', {
             method: 'POST',
             body: formData
         });
@@ -231,7 +231,7 @@ document.getElementById('updateEventForm').addEventListener('submit', async (e) 
     const formData = new FormData(e.target);
     const id = document.getElementById('updateId').value;
     try {
-        const response = await fetch(`http://localhost:6060/api/admin_event/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/admin_event/${id}`, {
             method: 'PUT',
             body: formData
         });
@@ -255,7 +255,7 @@ document.getElementById('deleteEventForm').addEventListener('submit', async (e) 
     e.preventDefault();
     const id = document.getElementById('deleteId').value;
     try {
-        const response = await fetch(`http://localhost:6060/api/admin_event/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/admin_event/${id}`, {
             method: 'DELETE'
         });
 
@@ -275,7 +275,7 @@ document.getElementById('deleteEventForm').addEventListener('submit', async (e) 
 
 async function loadEvents() {
     try {
-        const response = await fetch('http://localhost:6060/api/admin_event');
+        const response = await fetch('http://localhost:8080/api/admin_event');
         const data = await response.json();
         const list = document.getElementById('eventList');
         list.innerHTML = '';
@@ -286,7 +286,7 @@ async function loadEvents() {
         <div class="card-body">
             <h5 class="card-title">ID: ${event.id} - ${event.title}</h5>
             <p class="card-text">${event.description}</p>
-            ${event.image_path ? `<div class="text-center mt-3"><img src="http://localhost:6060/uploads/${event.image_path}" alt="${event.title}" class="img-fluid rounded"></div>` : ''}
+            ${event.image_path ? `<div class="text-center mt-3"><img src="http://localhost:8080/uploads/${event.image_path}" alt="${event.title}" class="img-fluid rounded"></div>` : ''}
         </div>
     </div>
 `;

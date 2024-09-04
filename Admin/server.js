@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise'); // Use mysql2/promise
 const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
@@ -22,7 +22,6 @@ const pool = mysql.createPool({
     password: 'rocketpower',
     database: 'consultancy_firm'
 });
-const promisePool = pool.promise();
 
 // Set up multer for file uploads
 const upload = multer({
@@ -41,14 +40,14 @@ app.post('/api/admin_event', upload.single('image'), async (req, res) => {
     const imagePath = req.file ? req.file.filename : null;
 
     try {
-        await promisePool.query(
+        const [result] = await pool.query(
             'INSERT INTO events (title, description, image_path) VALUES (?, ?, ?)',
             [title, description, imagePath]
         );
         res.status(201).json({ message: 'Event added successfully.' });
     } catch (err) {
         console.error('Error adding event:', err);
-        res.status(500).json({ error: 'Error adding event.' });
+        res.status(500).json({ error: 'Error adding event.', details: err.message });
     }
 });
 
@@ -70,11 +69,11 @@ app.put('/api/admin_event/:id', upload.single('image'), async (req, res) => {
         query += ' WHERE id = ?';
         params.push(id);
 
-        await promisePool.query(query, params);
+        await pool.query(query, params);
         res.status(200).json({ message: 'Event updated successfully.' });
     } catch (err) {
         console.error('Error updating event:', err);
-        res.status(500).json({ error: 'Error updating event.' });
+        res.status(500).json({ error: 'Error updating event.', details: err.message });
     }
 });
 
@@ -83,7 +82,7 @@ app.delete('/api/admin_event/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        const [rows] = await promisePool.query('SELECT image_path FROM events WHERE id = ?', [id]);
+        const [rows] = await pool.query('SELECT image_path FROM events WHERE id = ?', [id]);
         if (rows.length === 0) {
             return res.status(404).json({ error: 'Event not found.' });
         }
@@ -93,22 +92,22 @@ app.delete('/api/admin_event/:id', async (req, res) => {
             await unlink(path.join(__dirname, 'uploads', imagePath));
         }
 
-        await promisePool.query('DELETE FROM events WHERE id = ?', [id]);
+        await pool.query('DELETE FROM events WHERE id = ?', [id]);
         res.status(200).json({ message: 'Event deleted successfully.' });
     } catch (err) {
         console.error('Error deleting event:', err);
-        res.status(500).json({ error: 'Error deleting event.' });
+        res.status(500).json({ error: 'Error deleting event.', details: err.message });
     }
 });
 
 // List all events
 app.get('/api/admin_event', async (req, res) => {
     try {
-        const [events] = await promisePool.query('SELECT * FROM events');
+        const [events] = await pool.query('SELECT * FROM events');
         res.json({ events });
     } catch (err) {
         console.error('Error listing events:', err);
-        res.status(500).json({ error: 'Error listing events.' });
+        res.status(500).json({ error: 'Error listing events.', details: err.message });
     }
 });
 
@@ -127,25 +126,25 @@ app.post('/api/admin/upload', upload.single('file'), async (req, res) => {
     };
 
     try {
-        await promisePool.query(
+        await pool.query(
             'INSERT INTO file_metadata (name, title, description) VALUES (?, ?, ?)',
             [metadata.name, metadata.title, metadata.description]
         );
         res.status(200).send('File uploaded successfully.');
     } catch (err) {
         console.error('Error saving metadata:', err);
-        res.status(500).send('Error saving metadata.');
+        res.status(500).send('Error saving metadata.', err.message);
     }
 });
 
 // List all files
 app.get('/api/files', async (req, res) => {
     try {
-        const [files] = await promisePool.query('SELECT * FROM file_metadata');
+        const [files] = await pool.query('SELECT * FROM file_metadata');
         res.json({ files });
     } catch (err) {
         console.error('Error reading files:', err);
-        res.status(500).send('Error reading files.');
+        res.status(500).send('Error reading files.', err.message);
     }
 });
 
@@ -158,11 +157,11 @@ app.delete('/api/admin/delete', async (req, res) => {
 
     try {
         await unlink(path.join(__dirname, 'uploads', fileName));
-        await promisePool.query('DELETE FROM file_metadata WHERE name = ?', [fileName]);
+        await pool.query('DELETE FROM file_metadata WHERE name = ?', [fileName]);
         res.status(200).send('File deleted successfully.');
     } catch (err) {
         console.error('Error deleting file:', err);
-        res.status(500).send('Error deleting file.');
+        res.status(500).send('Error deleting file.', err.message);
     }
 });
 
@@ -174,14 +173,14 @@ app.post('/api/index', upload.single('image'), async (req, res) => {
     const imagePath = req.file ? req.file.filename : null;
 
     try {
-        await promisePool.query(
+        await pool.query(
             'INSERT INTO newsletters (title, content, image_path) VALUES (?, ?, ?)',
             [title, content, imagePath]
         );
         res.status(200).send('Newsletter added successfully.');
     } catch (err) {
         console.error('Error adding newsletter:', err);
-        res.status(500).send('Error adding newsletter.');
+        res.status(500).send('Error adding newsletter.', err.message);
     }
 });
 
@@ -192,7 +191,7 @@ app.put('/api/index/:id', upload.single('image'), async (req, res) => {
     const imagePath = req.file ? req.file.filename : null;
 
     try {
-        const [rows] = await promisePool.query('SELECT image_path FROM newsletters WHERE id = ?', [id]);
+        const [rows] = await pool.query('SELECT image_path FROM newsletters WHERE id = ?', [id]);
         if (rows.length === 0) {
             return res.status(404).send('Newsletter not found.');
         }
@@ -202,14 +201,14 @@ app.put('/api/index/:id', upload.single('image'), async (req, res) => {
             await unlink(path.join(__dirname, 'uploads', oldImagePath));
         }
 
-        await promisePool.query(
+        await pool.query(
             'UPDATE newsletters SET title = ?, content = ?, image_path = ? WHERE id = ?',
             [title, content, imagePath, id]
         );
         res.status(200).send('Newsletter updated successfully.');
     } catch (err) {
         console.error('Error updating newsletter:', err);
-        res.status(500).send('Error updating newsletter.');
+        res.status(500).send('Error updating newsletter.', err.message);
     }
 });
 
@@ -218,7 +217,7 @@ app.delete('/api/index/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        const [rows] = await promisePool.query('SELECT image_path FROM newsletters WHERE id = ?', [id]);
+        const [rows] = await pool.query('SELECT image_path FROM newsletters WHERE id = ?', [id]);
         if (rows.length === 0) {
             return res.status(404).send('Newsletter not found.');
         }
@@ -228,38 +227,122 @@ app.delete('/api/index/:id', async (req, res) => {
             await unlink(path.join(__dirname, 'uploads', imagePath));
         }
 
-        await promisePool.query('DELETE FROM newsletters WHERE id = ?', [id]);
+        await pool.query('DELETE FROM newsletters WHERE id = ?', [id]);
         res.status(200).send('Newsletter deleted successfully.');
     } catch (err) {
         console.error('Error deleting newsletter:', err);
-        res.status(500).send('Error deleting newsletter.');
+        res.status(500).send('Error deleting newsletter.', err.message);
     }
 });
 
 // List all newsletters
 app.get('/api/index', async (req, res) => {
     try {
-        const [newsletters] = await promisePool.query('SELECT * FROM newsletters');
+        const [newsletters] = await pool.query('SELECT * FROM newsletters');
         res.json({ newsletters });
     } catch (err) {
         console.error('Error listing newsletters:', err);
-        res.status(500).send('Error listing newsletters.');
+        res.status(500).send('Error listing newsletters.', err.message);
     }
 });
 
-// ---------- Serve Admin and User Pages ----------
+// ---------- Webinar Management Routes ----------
 
-// Serve Admin page
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'admin.html'));
+// Add a new webinar
+app.post('/api/webinars', upload.single('image'), async (req, res) => {
+    const { title, description, speaker, date, time, location } = req.body;
+    const imagePath = req.file ? req.file.filename : null;
+
+    try {
+        await pool.query(
+            'INSERT INTO webinars (title, description, speaker, date, time, location, image_path) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            [title, description, speaker, date, time, location, imagePath]
+        );
+        res.status(201).json({ message: 'Webinar added successfully.' });
+    } catch (err) {
+        console.error('Error adding webinar:', err);
+        res.status(500).json({ error: 'Error adding webinar.', details: err.message });
+    }
 });
 
-// Serve User page
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+// Update a webinar
+app.put('/api/webinars/:id', upload.single('image'), async (req, res) => {
+    const { id } = req.params;
+    const { title, description, speaker, date, time, location } = req.body;
+    const imagePath = req.file ? req.file.filename : null;
+
+    try {
+        let query = 'UPDATE webinars SET title = ?, description = ?, speaker = ?, date = ?, time = ?, location = ?';
+        const params = [title, description, speaker, date, time, location];
+
+        if (imagePath) {
+            query += ', image_path = ?';
+            params.push(imagePath);
+        }
+
+        query += ' WHERE id = ?';
+        params.push(id);
+
+        await pool.query(query, params);
+        res.status(200).json({ message: 'Webinar updated successfully.' });
+    } catch (err) {
+        console.error('Error updating webinar:', err);
+        res.status(500).json({ error: 'Error updating webinar.', details: err.message });
+    }
 });
 
-// Start the server
+// Delete a webinar
+app.delete('/api/webinars/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const [rows] = await pool.query('SELECT image_path FROM webinars WHERE id = ?', [id]);
+        if (rows.length === 0) {
+            return res.status(404).json({ error: 'Webinar not found.' });
+        }
+
+        const imagePath = rows[0].image_path;
+        if (imagePath) {
+            await unlink(path.join(__dirname, 'uploads', imagePath));
+        }
+
+        await pool.query('DELETE FROM webinars WHERE id = ?', [id]);
+        res.status(200).json({ message: 'Webinar deleted successfully.' });
+    } catch (err) {
+        console.error('Error deleting webinar:', err);
+        res.status(500).json({ error: 'Error deleting webinar.', details: err.message });
+    }
+});
+
+// List all webinars
+app.get('/api/webinars', async (req, res) => {
+    try {
+        const [webinars] = await pool.query('SELECT * FROM webinars');
+        res.json({ webinars });
+    } catch (err) {
+        console.error('Error listing webinars:', err);
+        res.status(500).json({ error: 'Error listing webinars.', details: err.message });
+    }
+});
+
+
+app.post('/api/registrations', async (req, res) => {
+    const { name, email, webinarId, webinarTitle } = req.body;
+
+    try {
+        await pool.query(
+            'INSERT INTO Registered_webinars (name, email, webinar_id) VALUES (?, ?, ?)',
+            [name, email, webinarId, webinarTitle]
+        );
+        res.status(201).json({ success: true });
+    } catch (err) {
+        console.error('Error processing registration:', err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });

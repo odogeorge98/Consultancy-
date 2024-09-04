@@ -33,7 +33,7 @@ function fetchPDFs(page) {
         
         listItem.innerHTML = `
             <div class="pdf-download text-center p-3 shadow-sm" style="background-color: rgb(255, 255, 255);">
-                <img src="../Resources/Imgs/pdf.png" alt="PDF Icon" class="img-fluid">
+                <img src="../Resources/Imgs/pdf2.jpeg" alt="PDF Icon" class="img-fluid">
                 <h5 class="mt-3">${file.title}</h5>
                 <p class="text-muted">${file.description}</p>
                 <a href="../uploads/${file.name}" download class="btn btn-primary mt-2">
