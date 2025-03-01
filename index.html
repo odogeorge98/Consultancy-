@@ -13,97 +13,48 @@
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header>
-        <span class="material-symbols-outlined menu" id="menuToggle">
-            menu 
-        </span>
-        <div class="header-line"></div> <!-- Vertical line -->
-        <a class="navbar-brand" href="index.html"><a href="index.html" class="logo"><img
-                    src="Resources/Imgs/EGC APPROVD LOGO 1.jpg" alt="EGC"></a></a>
-        <div class="header-right">
-            <div class="search-container">
-                <span class="material-symbols-outlined" id="searchIcon">
-                    search
-                </span>
-                <form id="searchForm" action="/search" method="get">
-                    <input type="text" id="searchInput" name="query" placeholder="Search...">
-                </form>
+   
+
+
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="./Resources/Imgs/EGC APPROVD LOGO 1.jpg" alt="EGC">
+            </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="./index.html" class="active">
+                    <span>Home</span>
+                </a>
+                <a href="./Menu/services.html">
+                    <span>Services</span>
+                </a>
+                <a href="./Menu/contact.html">
+                    <span>Contact</span>
+                </a>
+                <a href="./Menu/pdf.html">
+                    <span>PDF</span>
+                </a>
+                <a href="./Menu/newsletters.html">
+                    <span>Newsletter</span>
+                </a>
+                <a href="./Menu/webinar.html">
+                    <span>Webinar</span>
+                </a>
+                <a href="./Menu/about_us.html">
+                    <span>About</span>
+                </a>
             </div>
-            <!-- <a class="btn btn-outline-primary login" href="Menu/login.html">Log in</a> -->
+            
+            <button class="hamburger" id="hamburger" aria-label="Navigation Menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </div>
-    </header>
-
-
-
-    <!-- Overlay Menu -->
-    <div class="overlay-menu" id="overlayMenu">
-        <ul class="navbar-nav">
-            <li class="nav-item" data-image="Resources/Imgs/download (1).webp"
-                data-title="Struggling to navigate the latest customs regulations? We can help."
-                data-description="We offer a range of cost-effective support to help you develop a winning export market entry strategy, from advice through to devising the complete plan with KPIs, milestones and timescales.
-        We are specialists in helping companies to export for the first time. We have a number of clients who we help from the beginning, to define their products, set up their business and expand internationally."
-                data-link="index.html">
-                <a class="nav-link" href="#">Home</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="Resources/Imgs/download (2).webp" data-title="Mission Statement"
-                data-description="The majority of companies that export do so because they received a sales enquiry from abroad and wanted to take the opportunity to increase sales and profitability. In these circumstances there is usually a degree of learning on the job and the sales, finance and..." data-link="Menu/industryreport.html">
-                <a class="nav-link" href="#">Industry Report</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="Resources/Imgs/download (13).webp" data-title="Be Updated on whats going on"
-                data-description="The UK’s chemical regulation scheme is set to diverge from the EU’s, after the Department for Environment, Food and Rural Affairs (Defra) announced a change to the post-Brexit system. Following Brexit, the UK established an independent regulatory framework for..." data-link="Menu/newsletters.html">
-                <a class="nav-link" href="#">Newsletters</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="Resources/Imgs/download (4).webp" data-title="Services Title"
-                data-description="Services description text goes here." data-link="Menu/services.html">
-                <a class="nav-link" href="#">Services</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="Resources/Imgs/pdf2.jpeg" data-title="Download PDF"
-                data-description="" data-link="Menu/pdf.html">
-                <a class="nav-link" href="#">PDF</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="Resources/Imgs/download (12).webp" data-title="Webinars Title"
-                data-description="International trade offers fantastic opportunities for UK small businesses, but far too few take the plunge into overseas markets."
-                data-link="Menu/webinar.html">
-                <a class="nav-link" href="#">Webinars</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="Resources/Imgs/download (1).webp" data-title="Contact Title"
-                data-description="Contact description text goes here." data-link="Menu/contact.html">
-                <a class="nav-link" href="#">Contact</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-        </ul>
-
-        <!-- Overlay Content -->
-        <div class="overlay-content" id="overlayContent">
-            <img src="" alt="Description Image">
-            <h3></h3>
-            <p></p>
-            <a href="#" class="btn">Visit Page</a>
-        </div>
-    </div>
-
-
+    </nav>
 
     <!-- New Section with Images and Text Block -->
     <!-- <div class="main-content"> -->
@@ -111,10 +62,10 @@
     <div style="background-color: rgb(239, 237, 237);">
         <div class="image-text-container">
             <div class="image-wrapper1 text-center">
-                <img src="Resources/Imgs/download.webp" alt="Green sky with star" class="first-image img-fluid">
-                <h5 style="color: green;" class="image-text">ED’S GLOBAL CONSULT 2024</h5>
-                <h3 class="image-text">The Business Idea Pitch Deck</h3>
-                <a href="Menu/industryreport.html" class="learn-more learn image-text">Learn More</a>
+                <img src="Resources/Imgs/landing_image.jpg" alt="Green sky with star" class="first-image img-fluid">
+                <h5 style="color: white;" class="image-text">Empowering African MSMEs to Expand Globally</h5>
+                <h3 class="image-text">Start Your Global Expansion</h3>
+                <a href="menu/services.html" class="learn-more learn image-text" style="color: green;">Learn More</a>
             </div>
             <div class="text-block text-center">
                 <span class="click">Check more +</span>
@@ -168,101 +119,30 @@
         </div>
     </div>
 
-    <div class="head1">
-        <h6>FEATURED <span style="color: rgb(20, 217, 20);">THIS WEEK</span> </h6>
-        <h3>Our Latest Thinking Based on Your Interests</h3>
-
-    </div>
-
-
-
-
-    <div class="carousel">
-        <div class="carousel-wrapper">
-            <div class="carousel-track">
-                <div class="carousel-slide current-slide">
-                    <a href="Menu/services.html" target="" class="carousel-item">
-                        <img src="Resources/Imgs/download (8).webp" alt="Item 2">
-                        <div class="carousel-content">
-                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                                RESILIENCE <span style="color: rgb(39, 38, 38);">/ NEWLETTERS</span></p>
-                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
-                            </h2>
-
-                        </div>
-                    </a>
-                </div>
-                <div class="carousel-slide">
-                    <a href="Menu/services.html" target="" class="carousel-item">
-                        <img src="Resources/Imgs/spark.jpg" alt="Item 2">
-                        <div class="carousel-content">
-                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                                RESILIENCE <span style="color: rgb(39, 38, 38);">/ NEWLETTERS</span></p>
-                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
-                            </h2>
-
-                        </div>
-                    </a>
-                </div>
-
-                <div class="carousel-slide">
-                    <a href="Menu/services.html" target="" class="carousel-item">
-                        <img src="Resources/Imgs/spark.jpg" alt="Item 2">
-                        <div class="carousel-content">
-                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                                RESILIENCE <span style="color: rgb(39, 38, 38);">/ NEWLETTERS</span></p>
-                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
-                            </h2>
-
-                        </div>
-                    </a>
-                </div>
-
-                <div class="carousel-slide">
-                    <a href="Menu/services.html" target="" class="carousel-item">
-                        <img src="Resources/Imgs/spark.jpg" alt="Item 2">
-                        <div class="carousel-content">
-                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                                RESILIENCE <span style="color: rgb(39, 38, 38);">/ NEWLETTERS</span></p>
-                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
-                            </h2>
-
-                        </div>
-                    </a>
-                </div>
-
-                <div class="carousel-slide">
-                    <a href="Menu/services.html" target="" class="carousel-item">
-                        <img src="Resources/Imgs/download (9).webp" alt="Item 2">
-                        <div class="carousel-content">
-                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                                RESILIENCE <span style="color: rgb(39, 38, 38);">/ NEWLETTERS</span></p>
-                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
-                            </h2>
-
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="carousel-slide">
-                    <a href="Menu/services.html" target="" class="carousel-item">
-                        <img src="Resources/Imgs/download (9).webp" alt="Item 2">
-                        <div class="carousel-content">
-                            <p style="color: rgb(20, 217, 20);" class="carousel-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                                RESILIENCE <span style="color: rgb(39, 38, 38);">/ NEWLETTERS</span></p>
-                            <h2 class="carousel-title">New Measures of success for Climate Adaptation and Resilience
-                            </h2>
-
-                        </div>
-                    </a>
-                </div>
-                <!-- Add more slides as needed -->
+    <section class="section section-gray">
+        <h2>Our Core Philosophy</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>What We Believe</h3>
+                <ul class="values-list">
+                    <li>Insightful Solutions: Challenge traditional approaches with innovative insights</li>
+                    <li>Inspiring Growth: Collaborative empowerment for long-term success</li>
+                    <li>Navigating Complexity: Simplifying international trade processes</li>
+                    <li>Integrity in Action: Transparent challenges and honest communication</li>
+                    <li>Growth Through Partnership: Mutual success through client potential</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Our Values</h3>
+                <ul class="values-list">
+                    <li>Ethical Conduct: Highest standards of business ethics</li>
+                    <li>Collaboration: Strong partnerships for lasting impact</li>
+                    <li>Excellence: Top-tier solutions driving tangible results</li>
+                    <li>Commitment to Growth: Scaling African businesses globally</li>
+                </ul>
             </div>
         </div>
-        <button class="carousel-button carousel-button-left" data-direction="left">&lt;</button>
-        <button class="carousel-button carousel-button-right" data-direction="right">&gt;</button>
-    </div>
+    </section>
     <br><br>
 
 
@@ -327,103 +207,84 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><br>
 
 
 
 
-    <div class="container mt-4">
-        <div class="row no-gutters">
-            <!-- Left Side -->
-            <div class="col-lg-6">
-                <div class="left-side-content">
-                    <h2 class="title">Go Beyond the Expected</h2>
-                    <p class="description" style="color: rgb(39, 38, 38);">Here at EGC,We offer a range of
-                        cost-effective support to help you develop a winning export market entry strategy, from advice
-                        through to devising the complete plan with KPIs, milestones and timescales.
-
-                        We are specialists in helping companies to export for the first time. We have a number of
-                        clients who we help from the beginning, to define their products, set up their business and
-                        expand internationally. For others we work with them to develop a winning strategy for export
-                        growth.
-                    </p>
-                    <div class="arrows">
-                        <a href="Menu/newsletters.html" class="learn-more learn">EXPLORE OUR CULTURE AND VALUES<span></span></a><br>
-                        <a href="Menu/newsletters.html" class="learn-more learn learn2">READ THE CAREERS BLOG <span></span></a>
-
+    <section class="resources-section">
+        <div class="section-header" style="background-image: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.7)), url('https://example.com/header-bg.jpg');">
+            <h2>Whitepapers & Industry Reports</h2>
+            <p class="section-subtitle">Expert insights on global trade compliance and logistics optimization</p>
+        </div>
+    
+        <div class="resources-grid">
+            <!-- Whitepaper Card -->
+            <div class="resource-card">
+                <div class="card-image">
+                    <img src="https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg" alt="Global trade documentation">
+                    <div class="image-icon">
+                        <svg><!-- Document icon --></svg>
                     </div>
                 </div>
+                <div class="card-content">
+                    <h3>Global Trade Compliance Whitepapers</h3>
+                    <ul class="resource-list">
+                        <li>› Navigating Modern Customs Regulations</li>
+                        <li>› Sanctions Screening Best Practices</li>
+                        <li>› Dual-Use Goods Classification Guide</li>
+                    </ul>
+                    <a href="#" class="download-cta">Download Whitepaper Series</a>
+                </div>
             </div>
-
-            <!-- Right Side -->
-            <div class="col-lg-6">
-                <div class="right-side-content">
-                    <div class="large-image-container">
-                        <img src="Resources/Imgs/download (6).webp" alt="Large Image" class="large-image">
-
+    
+            <!-- Report Card -->
+            <div class="resource-card highlighted">
+                <div class="card-image">
+                    <img src="https://images.pexels.com/photos/8293777/pexels-photo-8293777.jpeg" alt="Logistics network">
+                    <div class="image-icon">
+                        <svg><!-- Analytics icon --></svg>
                     </div>
+                </div>
+                <div class="card-content">
+                    <h3>Logistics Trend Reports</h3>
+                    <ul class="resource-list">
+                        <li>2024 Global Supply Chain Benchmark Report</li>
+                        <li>Cold Chain Logistics Innovations</li>
+                        <li>E-commerce Last-Mile Delivery Analysis</li>
+                    </ul>
+                    <a href="#" class="download-cta">Access Full Reports</a>
+                </div>
+            </div>
+    
+            <!-- Compliance Tool Card -->
+            <div class="resource-card">
+                <div class="card-image">
+                    <img src="https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg" alt="Compliance checklist">
+                    <div class="image-icon">
+                        <svg><!-- Checklist icon --></svg>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Compliance Toolkit</h3>
+                    <ul class="resource-list">
+                        <li>HS Code Classification Handbook</li>
+                        <li>Export Control Checklists</li>
+                        <li>Trade Agreement Calculators</li>
+                    </ul>
+                    <a href="#" class="download-cta">Get Toolkit</a>
                 </div>
             </div>
         </div>
-    </div>
-
+    
+      
+    </section>
+    
 
 
     <img src="Resources/Imgs/sample3.png" alt="sample" style="width: 100%; height: 100%;"><hr>
 
-    <div class="grid-container">
-        <div class="head1">
-            <h6>RECOMMENDED <span style="color: rgb(20, 217, 20);">FOR YOU</span> </h6>
-            <h3>Our Latest Thinking Based on Your Interests</h3>
-        </div>
-
-        <div class="grid-wrapper">
-            <div class="grid-item">
-                <a href="Menu/pdf.html" class="grid-link">
-                    <img src="Resources/Imgs/pdf2.jpeg" alt="Item 1">
-                    <div class="grid-content">
-                        <p style="color: rgb(20, 217, 20);" class="grid-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                            RESILIENCE <span style="color: rgb(39, 38, 38);">/ PDF</span></p>
-                        <h2 class="grid-title">New Measures of success for Climate Adaptation and Resilience</h2>
-                    </div>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="Menu/pdf.html" class="grid-link">
-                    <img src="Resources/Imgs/pdf2.jpeg" alt="Item 1">
-                    <div class="grid-content">
-                        <p style="color: rgb(20, 217, 20);" class="grid-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                            RESILIENCE <span style="color: rgb(39, 38, 38);">/ PDF</span></p>
-                        <h2 class="grid-title">New Measures of success for Climate Adaptation and Resilience</h2>
-                    </div>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="Menu/pdf.html" class="grid-link">
-                    <img src="Resources/Imgs/pdf2.jpeg" alt="Item 2">
-                    <div class="grid-content">
-                        <p style="color: rgb(20, 217, 20);" class="grid-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                            RESILIENCE <span style="color: rgb(39, 38, 38);">/ PDF</span></p>
-                        <h2 class="grid-title">New Measures of success for Climate Adaptation and Resilience</h2>
-                    </div>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="Menu/pdf.html" class="grid-link">
-                    <img src="Resources/Imgs/pdf2.jpeg" alt="Item 3">
-                    <div class="grid-content">
-                        <p style="color: rgb(20, 217, 20);" class="grid-eyebrow">CLIMATE RISK, ADAPTATION, AND
-                            RESILIENCE <span style="color: rgb(39, 38, 38);">/ PDF</span></p>
-                        <h2 class="grid-title">New Measures of success for Climate Adaptation and Resilience</h2>
-                    </div>
-                </a>
-            </div>
-
-            
-            <!-- Add more items as needed -->
-        </div>
-    </div>
-
+    
 
 
 
@@ -453,41 +314,57 @@
     <footer class="footer">
         <div class="footer-top">
             <div class="follow-us">
-                <h3>FOLLOW US</h3>
-                <ul class="social-links">
-                    <li><a href="#"><img src="Resources/Imgs/ig.jpg" alt="Instagram"></a></li>
-                    <li><a href="#"><img src="Resources/Imgs/download.png" alt="Facebook"></a></li>
-                    <li><a href="#"><img src="Resources/Imgs/x.png" alt="Twitter"></a></li>
-                    <li><a href="#"><img src="Resources/Imgs/youtube.png" alt="YouTube"></a></li>
-                </ul>
+                <h3 class="footer-heading">Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-button" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-button" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-button" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-button" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-youtube">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                </div>
             </div>
-
         </div>
+    
         <div class="footer-middle">
-            <p>© 2024 EGC Consulting Group</p>
-            <hr>
+            <p class="copyright">© 2024 EGC Consulting Group</p>
+            <hr class="divider">
             <div class="footer-links">
-                <a href="#">Careers</a>
-                <a href="./Menu/contact.html">Contact</a>
-                <a href="#">Subscribe</a>
-                <a href="#">Alumni</a>
-                <a href="#">About</a>
-                <a href="">Offices</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-                <a href="#">Sitemap</a>
-                <a href="#">Responsible Disclosure</a>
+                
+                <a href="./index.html" class="footer-link">Home</a>
+                <a href="./Menu/contact.html" class="footer-link">Contact</a>
+                <a href="./Menu/about_us.html" class="footer-link">About Us</a>
+                <a href="./Menu/industries.html" class="footer-link">Industries</a>
+                <a href="./Menu/industryreport.html" class="footer-link">industryreport</a>
+                <a href="./Menu/newsletters.html" class="footer-link">Newsletters</a>
+                <a href="./Menu/pdf.html" class="footer-link">PDF</a>
+                <a href="./Menu/services.html" class="footer-link">Services/a>
+                <a href="./Menu/webinar.html" class="footer-link">Webinars</a>
             </div>
         </div>
+    
         <div class="footer-bottom">
-            <p>EGC Consulting Group is an Equal Opportunity Employer. All qualified applicants will receive
-                consideration for employment without regard to race, color, age, religion, sex, sexual orientation,
-                gender identity / expression, national origin, protected veteran status, or any other characteristic
-                protected under federal, state or local law, where applicable, and those with criminal histories will be
-                considered in a
-            </p>
+            <p class="disclaimer">EGC Consulting Group is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, age, religion, sex, sexual orientation, gender identity/expression, national origin, protected veteran status, or any other characteristic protected under federal, state or local law, where applicable, and those with criminal histories will be considered in accordance with applicable law.</p>
         </div>
-
+    </footer>
+    
         <script>
 
 function truncateText(text, wordLimit) {
@@ -530,6 +407,8 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .catch(error => console.error('Error fetching newsletters:', error));
 });
+
+
 
 
         </script>

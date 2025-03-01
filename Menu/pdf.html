@@ -13,91 +13,44 @@
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header>
-        <span class="material-symbols-outlined" id="menuToggle">
-            menu
-        </span>
-        <div class="header-line"></div> <!-- Vertical line -->
-        <a class="navbar-brand" href="../index.html"><a href="../index.html" class="logo"><img
-                    src="../Resources/Imgs/EGC APPROVD LOGO 1.jpg" alt="EGC"></a></a>
-        <div class="header-right">
-
-            <!-- <a class="btn btn-outline-primary login" href="login.html">Log in</a> -->
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="logo">
+            <img src="../Resources/Imgs/EGC APPROVD LOGO 1.jpg" alt="EGC">
+        </a>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="../index.html" class="active">
+                <span>Home</span>
+            </a>
+            <a href="../Menu/services.html">
+                <span>Services</span>
+            </a>
+            <a href="../Menu/contact.html">
+                <span>Contact</span>
+            </a>
+            <a href="../Menu/pdf.html">
+                <span>PDF</span>
+            </a>
+            <a href="../Menu/newsletters.html">
+                <span>Newsletter</span>
+            </a>
+            <a href="../Menu/webinar.html">
+                <span>Webinar</span>
+            </a>
+            <a href="../Menu/about_us.html">
+                <span>About</span>
+            </a>
         </div>
-    </header><br><br>
-
-    <!-- Overlay Menu -->
-    <div class="overlay-menu" id="overlayMenu">
-        <ul class="navbar-nav">
-            <li class="nav-item" data-image="../Resources/Imgs/download (1).webp"
-                data-title="Struggling to navigate the latest customs regulations? We can help."
-                data-description="We offer a range of cost-effective support to help you develop a winning export market entry strategy, from advice through to devising the complete plan with KPIs, milestones and timescales.
-
-        We are specialists in helping companies to export for the first time. We have a number of clients who we help from the beginning, to define their products, set up their business and expand internationally."
-                data-link="../index.html">
-                <a class="nav-link" href="#">Home</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="../Resources/Imgs/download (2).webp" data-title="Mission Statement"
-                data-description="The majority of companies that export do so because they received a sales enquiry from abroad and wanted to take the opportunity to increase sales and profitability. In these circumstances there is usually a degree of learning on the job and the sales, finance and..."
-                data-link="industryreport.html">
-                <a class="nav-link" href="#">Industry Report</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="../Resources/Imgs/download (13).webp"
-                data-title="Be Updated on Whats going on"
-                data-description="The UK’s chemical regulation scheme is set to diverge from the EU’s, after the Department for Environment, Food and Rural Affairs (Defra) announced a change to the post-Brexit system. Following Brexit, the UK established an independent regulatory framework for..."
-                data-link="newsletters.html">
-                <a class="nav-link" href="#">Newsletters</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="../Resources/Imgs/download (4).webp" data-title="Services Title"
-                data-description="Services description text goes here." data-link="services.html">
-                <a class="nav-link" href="#">Services</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="../Resources/Imgs/pdf2.jpeg" data-title="Download PDF" data-description=""
-                data-link="pdf.html">
-                <a class="nav-link" href="#">PDF</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="../Resources/Imgs/download (12).webp" data-title="Webinars Title"
-                data-description="International trade offers fantastic opportunities for UK small businesses, but far too few take the plunge into overseas markets."
-                data-link="webinar.html">
-                <a class="nav-link" href="#">Webinars</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-            <li class="nav-item" data-image="../Resources/Imgs/download (1).webp" data-title="Contact Title"
-                data-description="Contact description text goes here." data-link="contact.html">
-                <a class="nav-link" href="#">Contact</a>
-                <span class="material-symbols-outlined arrow">
-                    arrow_forward_ios
-                </span>
-            </li>
-        </ul>
-
-        <!-- Overlay Content -->
-        <div class="overlay-content" id="overlayContent">
-            <img src="" alt="Description Image">
-            <h3></h3>
-            <p></p>
-            <a href="#" class="btn">Visit Page</a>
-        </div>
+        
+        <button class="hamburger" id="hamburger" aria-label="Navigation Menu">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
     </div>
-
+</nav>
 
 
 
@@ -196,37 +149,55 @@
     <footer class="footer">
         <div class="footer-top">
             <div class="follow-us">
-                <h3 class="follow">FOLLOW US</h3>
-                <ul class="social-links">
-                    <li><a href="#"><img src="../Resources/Imgs/ig.jpg" alt="Instagram"></a></li>
-                    <li><a href="#"><img src="../Resources/Imgs/download.png" alt="Facebook"></a></li>
-                    <li><a href="#"><img src="../Resources/Imgs/x.png" alt="Twitter"></a></li>
-                    <li><a href="#"><img src="../Resources/Imgs/youtube.png" alt="YouTube"></a></li>
-                </ul>
+                <h3 class="footer-heading">Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-button" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-button" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-button" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-button" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-youtube">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
+    
         <div class="footer-middle">
-            <p>© 2024 Boston Consulting Group</p>
-            <hr>
+            <p class="copyright">© 2024 EGC Consulting Group</p>
+            <hr class="divider">
             <div class="footer-links">
-                <a href="#">Careers</a>
-                <a href="#">Contact</a>
-                <a href="#">Subscribe</a>
-                <a href="#">Alumni</a>
-                <a href="#">About</a>
-                <a href="#">Offices</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-                <a href="#">Sitemap</a>
-                <a href="#">Responsible Disclosure</a>
+                <a href="../index.html" class="footer-link">Home</a>
+                <a href="../Menu/contact.html" class="footer-link">Contact</a>
+                <a href="../Menu/about_us.html" class="footer-link">About Us</a>
+                <a href="../Menu/industries.html" class="footer-link">Industries</a>
+                <a href="../Menu/industryreport.html" class="footer-link">industryreport</a>
+                <a href="../Menu/newsletters.html" class="footer-link">Newsletters</a>
+                <a href="../Menu/pdf.html" class="footer-link">PDF</a>
+                <a href="../Menu/services.html" class="footer-link">Services/a>
+                <a href="../Menu/webinar.html" class="footer-link">Webinars</a>
             </div>
         </div>
+    
         <div class="footer-bottom">
-            <p>Boston Consulting Group is an Equal Opportunity Employer. All qualified applicants will receive
-                consideration for employment without regard to race, color, age, religion, sex, sexual orientation,
-                gender identity / expression, national origin, protected veteran status, or any other characteristic
-                protected under federal, state or local law, where applicable, and those with criminal histories will be
-                considered in a...
+            <p class="disclaimer">EGC Consulting Group is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, age, religion, sex, sexual orientation, gender identity/expression, national origin, protected veteran status, or any other characteristic protected under federal, state or local law, where applicable, and those with criminal histories will be considered in accordance with applicable law.</p>
+        </div>
+    </footer>
 
                 <script src="../Script/event.js"></script>
                 <script src="../Script/pdf.js"></script>
