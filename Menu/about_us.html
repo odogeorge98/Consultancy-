@@ -224,6 +224,20 @@
         }
 
   
+        :root {
+  --primary: #0A2342;
+  --secondary: #00A676;
+  --accent: #FF6B35;
+  --light: #F8F9FA;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --nav-height: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
@@ -259,10 +273,12 @@ body {
 }
 
 .logo img {
-  height: 42px;
+  height: 45px;
+  width: 50px;
   transition: var(--transition);
   filter: drop-shadow(0 2px 4px rgba(10, 35, 66, 0.1));
-}
+   margin-left: 0; /* Remove any default margin */
+ }
 
 .logo:hover img {
   transform: translateY(-2px);
@@ -404,6 +420,7 @@ body {
       backdrop-filter: blur(16px);
       box-shadow: -8px 0 24px rgba(10, 35, 66, 0.08);
       transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto; /* Allow vertical scrolling when there are many links */
   }
 
   .nav-links.show {
@@ -465,6 +482,9 @@ body {
   outline-offset: 4px;
   border-radius: 6px;
 }
+
+
+
 
 
 
@@ -623,7 +643,7 @@ body {
             </a>
             
             <div class="nav-links" id="navLinks">
-                <a href="../index.html" class="active">
+                <a href="../index.html" >
                     <span>Home</span>
                 </a>
                 <a href="../Menu/services.html">
@@ -641,7 +661,10 @@ body {
                 <a href="../Menu/webinar.html">
                     <span>Webinar</span>
                 </a>
-                <a href="../Menu/about_us.html">
+                <a href="../Menu/about_us.html" >
+                    <span>industry</span>
+                </a>
+                <a href="../Menu/about_us.html" class="active">
                     <span>About</span>
                 </a>
             </div>
@@ -779,7 +802,7 @@ body {
         </div>
     
         <div class="footer-middle">
-            <p class="copyright">© 2024 EGC Consulting Group</p>
+            <p class="copyright">© 2025 EGC</p>
             <hr class="divider">
             <div class="footer-links">
                 <a href="../index.html" class="footer-link">Home</a>
@@ -795,7 +818,7 @@ body {
         </div>
     
         <div class="footer-bottom">
-            <p class="disclaimer">EGC Consulting Group is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, age, religion, sex, sexual orientation, gender identity/expression, national origin, protected veteran status, or any other characteristic protected under federal, state or local law, where applicable, and those with criminal histories will be considered in accordance with applicable law.</p>
+            <p class="disclaimer">ED's Global Consult is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, age, religion, sex, sexual orientation, gender identity/expression, national origin, protected veteran status, or any other characteristic protected under federal, state or local law, where applicable, and those with criminal histories will be considered in accordance with applicable law.</p>
         </div>
     </footer>
 

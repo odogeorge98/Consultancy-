@@ -166,3 +166,39 @@ document.addEventListener("DOMContentLoaded", () => {
           observer.observe(section);
       });
   });
+
+
+
+
+
+  
+
+
+
+
+  const cards = document.querySelectorAll('.expansion-card');
+  const dots = document.querySelectorAll('.dot');
+  let currentIndex = 0;
+
+  function updateCards(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  // Auto-cycle slider every 8 seconds
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCards(currentIndex);
+  }, 4000);
+
+  // Allow manual navigation via dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentIndex = index;
+      updateCards(currentIndex);
+    });
+  });

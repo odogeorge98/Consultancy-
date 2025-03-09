@@ -192,6 +192,7 @@ body {
       backdrop-filter: blur(16px);
       box-shadow: -8px 0 24px rgba(10, 35, 66, 0.08);
       transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto; /* Allow vertical scrolling when there are many links */
   }
 
   .nav-links.show {
@@ -253,6 +254,7 @@ body {
   outline-offset: 4px;
   border-radius: 6px;
 }
+
 
 
 
@@ -694,12 +696,13 @@ body {
 }
 
 
-    .logo img {
-      height: 45px;
-      width: 50px;
-       margin-left: 0; /* Remove any default margin */
-     }
-
+.logo img {
+  height: 45px;
+  width: 50px;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(10, 35, 66, 0.1));
+   margin-left: 0; /* Remove any default margin */
+ }
 
 /* 
      newsletters */
